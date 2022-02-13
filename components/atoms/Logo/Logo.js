@@ -6,7 +6,7 @@ import icon from "../../../public/images/cryptocurrency.png";
 
 const Logo = () => {
   return (
-    <div className="flex items-center justify-center w-full p-5 bg-[#111827]">
+    <div className="flex items-center justify-center w-full px-5 py-7 bg-[#111827]">
       <span className="mr-2">
         <Badge dot>
           <Avatar

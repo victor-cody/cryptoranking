@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"; //react hooks
+import Link from "next/link";
+
 import { Menu, Badge } from "antd";
 import {
   HomeFilled,
@@ -24,19 +26,26 @@ const NavBar = () => {
               </div>
             </div>
           </li>
-          <NavbarItem text="home" icon={<HomeFilled />} />
-          <NavbarItem text="cryptocurrencies" icon={<MoneyCollectFilled />} />
-          <NavbarItem text="exchanges" icon={<FundOutlined />} />
+          <NavbarItem icon={<HomeFilled />}>
+            <Link href="/">home</Link>
+          </NavbarItem>
+          <NavbarItem icon={<MoneyCollectFilled />}>
+            <Link href="/cryptocurrencies">cryptocurrencies</Link>
+          </NavbarItem>
+          <NavbarItem icon={<FundOutlined />}>
+            <Link href="/exchanges">exchanges</Link>
+          </NavbarItem>
           <NavbarItem
-            text="news"
             icon={
-              <Badge color={"#000"} dot>
+              <Badge dot>
                 <BellFilled />
               </Badge>
             }
-          />
+          >
+            <Link href="/news">news</Link>
+          </NavbarItem>
         </ul>
-        <p className="mb-14 px-5 py-4 border-t-2 border-gray-100 hidden md:block text-center text-xs">
+        <p className="mb-14 px-5 pt-6 border-t-2 border-gray-100 hidden md:block text-center text-xs">
           Copyright @ {new Date().getFullYear()}
           <br />
           All Rights Reversed
