@@ -10,14 +10,14 @@ const Logo = () => {
       <span className="mr-2">
         <Badge dot>
           <Avatar
-            // shape="circle"
-            src={icon}
-            size="large"
-            // style={{
-            //   backgroundColor: "#0071bd",
-            //   width: "80px",
-            // }}
-            // icon={<UserOutlined />}
+            shape="circle"
+            // src={icon}
+            size={40}
+            // size={"large"}
+            style={{
+              backgroundColor: "#0071bd",
+            }}
+            icon={<UserOutlined />}
           />
         </Badge>
       </span>
@@ -26,7 +26,7 @@ const Logo = () => {
           <a>Cryptoverse</a>
         </Link>
       </Typography.Title>
-      <Button className="!hidden absolute right-[10px] top-[25px] text-lg !border-none  md:!block">
+      <Button className="!hidden absolute right-[10px] top-[25px] text-lg !border-none  sm:!block">
         <MenuOutlined />
       </Button>
     </div>

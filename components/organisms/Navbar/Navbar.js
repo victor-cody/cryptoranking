@@ -15,7 +15,7 @@ import Logo from "../../atoms/Logo/Logo"; //logo
 
 const NavBar = () => {
   return (
-    <nav className="fixed flex flex-col left-0 top-0 w-14 hover:w-64 md:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-0">
+    <nav className="fixed flex [flex: 0.2] flex-col left-0 top-0 w-14 hover:w-64 md:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-0">
       <Logo />
       <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow px-2">
         <ul className="flex flex-col py-4 space-y-1">
@@ -38,7 +38,7 @@ const NavBar = () => {
           <NavbarItem
             icon={
               <Badge dot>
-                <BellFilled />
+                <BulbOutlined color="#fff" />
               </Badge>
             }
           >
