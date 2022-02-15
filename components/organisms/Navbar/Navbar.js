@@ -45,7 +45,7 @@ const NavBar = () => {
             <Link href="/news">news</Link>
           </NavbarItem>
         </ul>
-        <p className="mb-14 px-5 pt-6 border-t-2 border-gray-100 hidden md:block text-center text-xs">
+        <p className="mb-0 px-5 pt-6 pb-2 bg-[#1f2937] hidden md:block text-center text-xs">
           Copyright @ {new Date().getFullYear()}
           <br />
           All Rights Reversed
