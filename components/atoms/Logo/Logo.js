@@ -21,7 +21,7 @@ const Logo = () => {
           />
         </Badge>
       </span>
-      <Typography.Title level={3} className="ml-3">
+      <Typography.Title level={3}>
         <Link href="/">
           <a>Cryptoverse</a>
         </Link>
