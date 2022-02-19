@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <div className="min-h-screen flex-col flex-auto flex-shrink-0 antialiased w-screen flex overflow-hidden">
       <Navbar />
-      <div className="h-full ml-14 mt-14 mb-10 md:ml-64 px-4">
+      <div className="h-full ml-14 my-2 md:ml-64 px-4">
       <Component {...pageProps} />
       </div>
     </div>

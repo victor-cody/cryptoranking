@@ -6,7 +6,7 @@ import { CryptoStats } from "../components";
 import { useGetCryptosQuery } from "./api/cryptoApi"; //endpoint to query the coinranking api on rapidapi and return the crypto stats
 
 export default function Home() {
-  //function to give the CryptoStats component hreaders diffrent colors
+  //function to give the CryptoStats component headers diffrent colors
   function applyColors () {
     const CryptoStatsHeaders = document.querySelectorAll('.ant-statistic-title');
     console.log(CryptoStatsHeaders)
@@ -15,7 +15,8 @@ export default function Home() {
   const colors = ['#d13a79','#4083d2','#e68c7c','#545682', '#377d6f'];
 
     [...CryptoStatsHeaders].forEach((header,i) => {
-      header.className +=  `text-${colors[i]} font-bold text-xl`;
+      // header.className = `text-[${colors[i]}] font-bold text-lg mb-3`;
+      header.style = `color:${colors[i]}; font-size: 15px; font-weight: 700;`;
     })
   }
 
@@ -41,6 +42,7 @@ export default function Home() {
       </Row>
     );
     applyColors()
+    // setTimeOut(1500, applyColors)
   }
   //if the data is fetched/not yet fetched and there is an error, show the error
   if ((isSuccess && isError) || (!isFetching && isError)) {
@@ -50,15 +52,15 @@ export default function Home() {
 
   return (
     <main className="w-full">
-      <h2 className="text-2xl font-normal mb-2">Global Crypto Stats</h2>
+      <h2 className="text-2xl font-semibold mb-4">Global Crypto Stats</h2>
       {content}
       <div className="flex justify-between items-center mt-10">
-        <h2 className="text-3xl font-bold mb-2">Top 10 Cryptocurrencies in the World</h2>
-        <h3 className="mt-0 text-2xl"><Link href="/cryptocurrencies">Show More</Link></h3>
+        <h2 className="text-2xl font-bold mb-2">Top 10 Cryptocurrencies in the World</h2>
+        <h3 className="mt-0 text-xl"><Link href="/cryptocurrencies">Show More</Link></h3>
       </div>
       <div className="flex justify-between items-center mt-10">
-        <h2 className="text-3xl font-bold mb-2">Latest Crypto News</h2>
-        <h3 className="mt-0 text-2xl"><Link href="/news">Show More</Link></h3>
+        <h2 className="text-2xl font-bold mb-2">Latest Crypto News</h2>
+        <h3 className="mt-0 text-xl"><Link href="/news">Show More</Link></h3>
       </div>
     </main>
   );
