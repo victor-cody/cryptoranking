@@ -1,17 +1,84 @@
-import { Row } from 'antd';
-import { CryptoStats } from '../components';
+import React, { useEffect } from "react";
+import { Row } from "antd";
+import millify from 'millify';
+import Link from "next/link";
+
+import { CryptoStats, GridLoadingSkeleton} from "../components";
+import Cryptocurrencies from './cryptocurrencies';
+import { useGetCryptosQuery } from "./api/cryptoApi"; //endpoint to query the coinranking api on rapidapi and return the crypto stats
 
 export default function Home() {
+  //function to give the CryptoStats component headers diffrent colors
+  function applyColors () {
+    const CryptoStatsHeaders = document.querySelectorAll('.ant-statistic-title');
+    console.log(CryptoStatsHeaders)
+
+  //colors array
+  const colors = ['#d13a79','#4083d2','#e68c7c','#545682', '#377d6f'];
+
+    [...CryptoStatsHeaders].forEach((header,i) => {
+      // header.className = `text-[${colors[i]}] font-bold text-lg mb-3`;
+      header.style = `color:${colors[i]}; font-size: 15px; font-weight: 700;`;
+    })
+  }
+
+  const { data, isFetching, isSuccess, isError, error } = useGetCryptosQuery(10); //useGetCryptosQuery is a custom hook that returns the data, loading, and error from the endpoint
+
+  let content;
+
+  const globalStats = data?.data?.stats;
+
+  useEffect(() => {
+    if (isSuccess && !isError) {
+      applyColors()
+    }
+  }, [isFetching, isSuccess]) 
+
+  //if the data is not yet fetched, show a loading indicator
+  if (isFetching) {
+    content = <GridLoadingSkeleton count={5} sm={24} lg={12} />;
+  }
+  //if the data is fetched and there is no error, show the data
+  if (isSuccess && !isError) {
+    content =  (
+      <>
+        <CryptoStats title="Total Cryptocurrencies" value={globalStats.total} />
+        <CryptoStats title="Total Exchanges" value={millify(globalStats.totalExchanges)}/>
+        <CryptoStats title="Total Market Cap:" value={`$${millify(globalStats.totalMarketCap)}`} />
+        <CryptoStats title="Total 24h Volume" value={`$${millify(globalStats.total24hVolume)}`} />
+        <CryptoStats title="Total Markets" value={millify(globalStats.totalMarkets)}/>
+      </>
+    );
+    applyColors()
+    // setTimeOut(1500, applyColors)
+  }
+  //if the data is fetched/not yet fetched and there is an error, show the error
+  if ((isSuccess && isError) || (!isFetching && isError)) {
+    content = <div>{error}</div>;
+  }
+
+
   return (
-      <main className="w-full">
-        <h2 className="text-2xl font-normal mb-2">Global Crypto Stats</h2>
-        <Row gutter={[32,24]}>
-          <CryptoStats title="Total Cryptocurrencies" value={"5"} />
-          <CryptoStats title="Total Exchanges" value={"5"} />
-          <CryptoStats title="Total Market Cap:" value={"5"} />
-          <CryptoStats title="Total 24h Volume" value={"5"} />
-          <CryptoStats title="Total Markets" value={"5"} />
-        </Row>
-      </main>
+    <main className="w-full">
+      <h2 className="text-2xl font-semibold mb-5">Global Crypto Stats</h2>
+      <Row gutter={[32, 24]}>{content}</Row>
+
+      <div className="flex justify-between items-center mt-10">
+        <h2 className="text-2xl font-bold mb-2">
+          Top 10 Cryptocurrencies in the World
+        </h2>
+        <h3 className="mt-0 text-lg font-bold">
+          <Link href="/cryptocurrencies"><a>Show More</a></Link>
+        </h3>
+      </div>
+        <Cryptocurrencies simplified/>
+
+      <div className="flex justify-between items-center mt-10">
+        <h2 className="text-2xl font-bold mb-5">Latest Crypto News</h2>
+        <h3 className="mt-0 text-lg font-bold">
+          <Link href="/news"><a>Show More</a></Link>
+        </h3>
+      </div>
+    </main>
   );
 }

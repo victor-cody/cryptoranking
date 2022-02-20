@@ -21,9 +21,9 @@ const Logo = () => {
           />
         </Badge>
       </span>
-      <Typography.Title level={3} className="ml-3">
+      <Typography.Title level={3}>
         <Link href="/">
-          <a>Cryptoverse</a>
+          Cryptoverse
         </Link>
       </Typography.Title>
       <Button className="!hidden absolute right-[10px] top-[25px] text-lg !border-none  sm:!block">
