@@ -2,7 +2,7 @@ import { Row } from "antd";
 import millify from 'millify';
 import Link from "next/link";
 
-import { CryptoStats } from "../components";
+import { CryptoStats, GridLoadingSkeleton} from "../components";
 import { useGetCryptosQuery } from "./api/cryptoApi"; //endpoint to query the coinranking api on rapidapi and return the crypto stats
 
 export default function Home() {
@@ -28,18 +28,18 @@ export default function Home() {
 
   //if the data is not yet fetched, show a loading indicator
   if (isFetching) {
-    content =  <div>Loading...</div>;
+    content = <GridLoadingSkeleton count={5} sm={24} lg={12} />;
   }
   //if the data is fetched and there is no error, show the data
   if (isSuccess && !isError) {
     content =  (
-      <Row gutter={[32, 24]}>
+      <>
         <CryptoStats title="Total Cryptocurrencies" value={globalStats.total} />
         <CryptoStats title="Total Exchanges" value={millify(globalStats.totalExchanges)}/>
         <CryptoStats title="Total Market Cap:" value={`$${millify(globalStats.totalMarketCap)}`} />
         <CryptoStats title="Total 24h Volume" value={`$${millify(globalStats.total24hVolume)}`} />
         <CryptoStats title="Total Markets" value={millify(globalStats.totalMarkets)}/>
-      </Row>
+      </>
     );
     applyColors()
     // setTimeOut(1500, applyColors)
@@ -53,14 +53,21 @@ export default function Home() {
   return (
     <main className="w-full">
       <h2 className="text-2xl font-semibold mb-4">Global Crypto Stats</h2>
-      {content}
+      <Row gutter={[32, 24]}>{content}</Row>
+
       <div className="flex justify-between items-center mt-10">
-        <h2 className="text-2xl font-bold mb-2">Top 10 Cryptocurrencies in the World</h2>
-        <h3 className="mt-0 text-xl"><Link href="/cryptocurrencies">Show More</Link></h3>
+        <h2 className="text-2xl font-bold mb-2">
+          Top 10 Cryptocurrencies in the World
+        </h2>
+        <h3 className="mt-0 text-xl">
+          <Link href="/cryptocurrencies">Show More</Link>
+        </h3>
       </div>
       <div className="flex justify-between items-center mt-10">
         <h2 className="text-2xl font-bold mb-2">Latest Crypto News</h2>
-        <h3 className="mt-0 text-xl"><Link href="/news">Show More</Link></h3>
+        <h3 className="mt-0 text-xl">
+          <Link href="/news">Show More</Link>
+        </h3>
       </div>
     </main>
   );

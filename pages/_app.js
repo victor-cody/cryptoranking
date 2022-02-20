@@ -11,7 +11,7 @@ import "../styles/globals.css"; //
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <div className="min-h-screen flex-col flex-auto flex-shrink-0 antialiased w-screen flex overflow-hidden">
+      <div className="min-h-screen flex-col flex-auto flex-shrink-0 antialiased w-screen flex overflow-x-hidden ">
       <Navbar />
       <div className="h-full ml-14 my-2 md:ml-64 px-4">
       <Component {...pageProps} />
