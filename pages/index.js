@@ -1,8 +1,10 @@
+import React, { useEffect } from "react";
 import { Row } from "antd";
 import millify from 'millify';
 import Link from "next/link";
 
 import { CryptoStats, GridLoadingSkeleton} from "../components";
+import Cryptocurrencies from './cryptocurrencies';
 import { useGetCryptosQuery } from "./api/cryptoApi"; //endpoint to query the coinranking api on rapidapi and return the crypto stats
 
 export default function Home() {
@@ -20,11 +22,17 @@ export default function Home() {
     })
   }
 
-  const { data, isFetching, isSuccess, isError, error } = useGetCryptosQuery(); //useGetCryptosQuery is a custom hook that returns the data, loading, and error from the endpoint
+  const { data, isFetching, isSuccess, isError, error } = useGetCryptosQuery(10); //useGetCryptosQuery is a custom hook that returns the data, loading, and error from the endpoint
 
   let content;
 
   const globalStats = data?.data?.stats;
+
+  useEffect(() => {
+    if (isSuccess && !isError) {
+      applyColors()
+    }
+  }, [isFetching, isSuccess]) 
 
   //if the data is not yet fetched, show a loading indicator
   if (isFetching) {
@@ -52,21 +60,23 @@ export default function Home() {
 
   return (
     <main className="w-full">
-      <h2 className="text-2xl font-semibold mb-4">Global Crypto Stats</h2>
+      <h2 className="text-2xl font-semibold mb-5">Global Crypto Stats</h2>
       <Row gutter={[32, 24]}>{content}</Row>
 
       <div className="flex justify-between items-center mt-10">
         <h2 className="text-2xl font-bold mb-2">
           Top 10 Cryptocurrencies in the World
         </h2>
-        <h3 className="mt-0 text-xl">
-          <Link href="/cryptocurrencies">Show More</Link>
+        <h3 className="mt-0 text-lg font-bold">
+          <Link href="/cryptocurrencies"><a>Show More</a></Link>
         </h3>
       </div>
+        <Cryptocurrencies simplified/>
+
       <div className="flex justify-between items-center mt-10">
-        <h2 className="text-2xl font-bold mb-2">Latest Crypto News</h2>
-        <h3 className="mt-0 text-xl">
-          <Link href="/news">Show More</Link>
+        <h2 className="text-2xl font-bold mb-5">Latest Crypto News</h2>
+        <h3 className="mt-0 text-lg font-bold">
+          <Link href="/news"><a>Show More</a></Link>
         </h3>
       </div>
     </main>

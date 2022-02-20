@@ -33,7 +33,7 @@ export const cryptoAPI = createApi({
   endpoints: builder => ({
     //operations and requests form rapidapi	
 	getCryptos : builder.query({
-		query : () => createRequest('/coins')
+		query : (count) => createRequest(`/coins?limit=${count}`),
 	})
 
   }),
