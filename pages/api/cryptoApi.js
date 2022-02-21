@@ -2,8 +2,8 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'; // Impor
 
 //Headers
 const cryptoHeaders = { 
-	'x-rapidapi-host': process.env.NEXT_PUBLIC_RAPIDAPI_HOST,
-    'x-rapidapi-key': process.env.NEXT_PUBLIC_RAPIDAPI_KEY
+	'x-rapidapi-host': process.env.NEXT_PUBLIC_CRYPTOAPI_HOST_HOST,
+    'x-rapidapi-key': process.env.NEXT_PUBLIC_CRYPTOAPI_HOST_KEY
 }
 
 //request params

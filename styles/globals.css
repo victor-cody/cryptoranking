@@ -19,7 +19,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Avenir', sans-serif;
-  @apply min-h-screen overflow-x-hidden flex items-center justify-center
+  @apply min-h-screen max-h-full overflow-x-hidden flex items-center justify-center
 }
 
 a {

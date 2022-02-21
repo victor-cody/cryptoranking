@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Row } from "antd";
 import millify from 'millify';
 import Link from "next/link";
@@ -6,8 +6,12 @@ import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 
 import { CryptoStats, GridLoadingSkeleton} from "../components";
+// pages
 import Cryptocurrencies from './cryptocurrencies';
-import { useGetCryptosQuery } from "./api/cryptoApi"; //endpoint to query the coinranking api on rapidapi and return the crypto stats
+import CryptoNews from "./news";
+
+// redux-toolkit to make api calls
+import { useGetCryptosQuery } from "./api/cryptoApi";
 
 export default function Home() {
   //function to give the CryptoStats component headers diffrent colors
@@ -28,7 +32,7 @@ export default function Home() {
   const { data, isFetching, isSuccess, isError, error } = useGetCryptosQuery(10); 
 
   // const {globalStats, setGlobalStats} = useState({})
-  const {annotation, setAnnotation} = useState(false)
+  const annotation = useRef(false)
   
   let content;
 
@@ -38,7 +42,7 @@ export default function Home() {
     if (isSuccess && !isError) {
       // setGlobalStats(data?.data?.stats)
       applyColors()
-      setAnnotation(true)
+      annotation.current = true
     }
     // eslint-disable-next-line
   }, [isFetching, isSuccess]) 
@@ -68,11 +72,11 @@ export default function Home() {
 
 
   return (
-    <main className="w-full">
+    <main className="mt-[66rem]">
       <RoughNotationGroup show={annotation}>
         <h2 className="text-2xl font-semibold mb-5">
           Global{" "}
-          <RoughNotation type="highlight" animationDelay={1000} color="#fff176">
+          <RoughNotation type="highlight" animationDelay={1100} color="#fff176">
             Crypto Stats
           </RoughNotation>
         </h2>
@@ -107,6 +111,7 @@ export default function Home() {
             </Link>
           </h3>
         </div>
+        <CryptoNews simplified />
       </RoughNotationGroup>
     </main>
   );

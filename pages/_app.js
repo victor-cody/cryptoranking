@@ -13,9 +13,9 @@ import { Navbar } from '../components' //Navbar
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <div className="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased w-screen bg-white dark:bg-gray-700 text-black dark:text-white">
+      <div className="flex flex-col flex-auto flex-shrink-0 antialiased w-screen bg-white dark:bg-gray-700 text-black dark:text-white">
         <Navbar />
-        <div className="h-full pages-container ml-14 mt-[28rem] mb-1 md:ml-64  px-4">
+        <div className="pages-container ml-14 mb-1 md:ml-64  px-4">
           <Component {...pageProps} />
         </div>
       </div>

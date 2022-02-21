@@ -49,17 +49,16 @@ const Cryptocurrencies = (props) => {
   }
 
   return (
-    <div className={`${simplified ? "" : "mt-[270rem]"}`}>
-
+    <div className={`${simplified ? "" : "mt-[300rem]"}`}>
       {!simplified && (
-       <RoughNotation
-      customElement="h2"
-        type="highlight"
-        color="#fff176"
-        className="text-2xl font-semibold mb-5"
-      >
-        Cryptocurrencies
-      </RoughNotation>
+        <RoughNotation
+          customElement="h2"
+          type="highlight"
+          color="#fff176"
+          className="text-2xl font-semibold mb-5"
+        >
+          Cryptocurrencies
+        </RoughNotation>
       )}
 
       {/* Search bar */}
@@ -86,8 +85,8 @@ const Cryptocurrencies = (props) => {
         {
           //if the data is fetched and there is no error, show the data
 
-          cryptos?.map((currency) => (
-            <Col xs={24} sm={12} lg={6} key={currency.id}>
+          cryptos?.map((currency, id) => (
+            <Col xs={24} sm={12} lg={6} key={String(id)}>
               <Link href={`crypto/${currency.id}`}>
                 <a>
                   <Card
