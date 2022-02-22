@@ -42,7 +42,10 @@ export default function Home() {
     if (isSuccess && !isError) {
       // setGlobalStats(data?.data?.stats)
       applyColors()
-      annotation.current = true
+      window.setTimeout(() => {
+        annotation.current = true
+      }, 1200)
+      
     }
     // eslint-disable-next-line
   }, [isFetching, isSuccess]) 
@@ -72,11 +75,11 @@ export default function Home() {
 
 
   return (
-    <main className="mt-[66rem]">
+    <main className="">
       <RoughNotationGroup show={annotation}>
         <h2 className="text-2xl font-semibold mb-5">
           Global{" "}
-          <RoughNotation type="highlight" animationDelay={1100} color="#fff176">
+          <RoughNotation type="highlight" animationDelay={5000} color="#fff176">
             Crypto Stats
           </RoughNotation>
         </h2>
@@ -90,7 +93,7 @@ export default function Home() {
             </RoughNotation>{" "}
             in the World
           </h2>
-          <h3 className="mt-0 text-lg font-bold">
+          <h3 className="mt-0 lg:text-base sm:text-xs font-bold">
             <Link href="/cryptocurrencies">
               <a>Show More</a>
             </Link>
@@ -105,7 +108,7 @@ export default function Home() {
               News
             </RoughNotation>
           </h2>
-          <h3 className="mt-0 text-lg font-bold">
+          <h3 className="mt-0 lg:text-base sm:text-xs font-bold">
             <Link href="/news">
               <a>Show More</a>
             </Link>

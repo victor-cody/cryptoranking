@@ -49,7 +49,7 @@ const Cryptocurrencies = (props) => {
   }
 
   return (
-    <div className={`${simplified ? "" : "mt-[300rem]"}`}>
+    <div>
       {!simplified && (
         <RoughNotation
           customElement="h2"

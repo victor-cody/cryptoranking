@@ -44,7 +44,7 @@ const CryptoNews = (props) => {
   }
 
   return (
-    <div className={`${simplified ? "" : "mt-[130rem]"}`}>
+    <div>
       {!simplified && (
       <RoughNotation
         customElement="h2"
