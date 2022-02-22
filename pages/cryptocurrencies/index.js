@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-// import Image from "next/image";
+
 import millify from "millify";
 import Link from "next/link";
 import { Card, Row, Col, Input } from "antd";
+import { RoughNotation } from "react-rough-notation";
 
 import { GridLoadingSkeleton } from "../../components";
 
@@ -48,7 +49,18 @@ const Cryptocurrencies = (props) => {
   }
 
   return (
-    <div className={`${simplified ? "" : "mt-[265rem]"}`}>
+    <div>
+      {!simplified && (
+        <RoughNotation
+          customElement="h2"
+          type="highlight"
+          color="#fff176"
+          className="text-2xl font-semibold mb-5"
+        >
+          Cryptocurrencies
+        </RoughNotation>
+      )}
+
       {/* Search bar */}
       {!simplified && (
         <div className="pt-0 pb-5 md:pt-10 md:pb-5 mx-4 w-[50%]">
@@ -71,10 +83,10 @@ const Cryptocurrencies = (props) => {
       )}
       <Row gutter={[24, 24]}>
         {
-  //if the data is fetched and there is no error, show the data
+          //if the data is fetched and there is no error, show the data
 
-          cryptos?.map((currency) => (
-            <Col xs={24} sm={12} lg={6} key={currency.id}>
+          cryptos?.map((currency, id) => (
+            <Col xs={24} sm={12} lg={6} key={String(id)}>
               <Link href={`crypto/${currency.id}`}>
                 <a>
                   <Card
@@ -83,6 +95,7 @@ const Cryptocurrencies = (props) => {
                     className="break-words bg-white dark:bg-gray-800 shadow-md rounded"
                     title={`${currency.rank}. ${currency.name}`}
                     extra={
+                      // eslint-disable-next-line
                       <img
                         className="w-10"
                         alt={`${currency.name} logo`}
