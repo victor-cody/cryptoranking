@@ -10,10 +10,13 @@ import { GridLoadingSkeleton } from "../../components";
 import { useGetCryptosQuery } from "../api/cryptoApi.js";
 
 const Cryptocurrencies = (props) => {
-  // passing the simplified prop to determine the number of cryptocurrencies to show
-  const { simplified } = props;
-  const count = simplified ? 10 : 100;
+  
+  let content; // content to be displayed
 
+  const { simplified } = props; // prop to determine the UI layout to show
+  const count = simplified ? 10 : 100; //count of cryptocurrencies that should be shown first
+
+  // fetching data
   const {
     data: cryptosList,
     isFetching,
@@ -22,7 +25,7 @@ const Cryptocurrencies = (props) => {
     error,
   } = useGetCryptosQuery(count);
 
-  //getting they coins from coinranking api and storing it in a state varable
+  // filters
   const [cryptos, setCryptos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -36,58 +39,23 @@ const Cryptocurrencies = (props) => {
 
   //if the data is not yet fetched, show a loading indicator
   if (isFetching) {
-    return (
-      <Row gutter={[24, 24]} className="">
-        <GridLoadingSkeleton count={4} xs={24} sm={12} lg={6} />
-      </Row>
+    content = (
+      // <Row gutter={[24, 24]} className="">
+      <GridLoadingSkeleton count={10} xs={24} sm={12} lg={6} />
+      // </Row>
     );
   }
 
-  //if the data is fetched/not yet fetched and there is an error, show the error
-  if ((isSuccess && isError) || (!isFetching && isError)) {
-    return <div>{error}</div>;
-  }
-
-  return (
-    <div>
-      {!simplified && (
-        <RoughNotation
-          customElement="h2"
-          type="highlight"
-          color="#fff176"
-          className="text-2xl font-semibold mb-5"
-        >
-          Cryptocurrencies
-        </RoughNotation>
-      )}
-
-      {/* Search bar */}
-      {!simplified && (
-        <div className="pt-0 pb-5 md:pt-10 md:pb-5 mx-4 w-[50%]">
-          <div className="bg-white dark:bg-gray-700 text-black dark:text-white flex items-center rounded-lg shadow-md md:shadow-xl">
-            <input
-              placeholder="Search"
-              type="search"
-              name="search"
-              className="w-[80%] rounded-l-full py-4 px-6 leading-tight focus:outline-none"
-              id="search"
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-              }}
-            />
-            <div className="p-2 md:p-4">
-              <button className="rounded-full focus:outline-none w-10 h-12 md:w-10 md:h-12 flex items-center justify-center"></button>
-            </div>
-          </div>
-        </div>
-      )}
-      <Row gutter={[24, 24]}>
+  //if the data is fetched and there is no error, show the data
+  if (isSuccess && !isError) {
+    content = (
+      <>
         {
           //if the data is fetched and there is no error, show the data
 
           cryptos?.map((currency, id) => (
-            <Col xs={24} sm={12} lg={6} key={String(id)}>
-              <Link href={`crypto/${currency.id}`}>
+            <Col xs={24} sm={12} lg={6} key={String(currency.uuid)}>
+              <Link href={`cryptocurrencies/${currency.uuid}`}>
                 <a>
                   <Card
                     bordered={false}
@@ -103,10 +71,22 @@ const Cryptocurrencies = (props) => {
                       />
                     }
                   >
-                    <div className="text-[13px] font-bold">
-                      <p>Price: {millify(currency.price)}</p>
-                      <p>Market Cap: {millify(currency.marketCap)}</p>
-                      <p>Daily Change: {currency.change}%</p>
+                    <div className="text-[13px]">
+                      <p>Price: $ {millify(currency.price)}</p>
+                      <p>Market Cap: $ {millify(currency.marketCap)}</p>
+                      <p>
+                        Daily Change:{" "}
+                        <span
+                          className={`${
+                            currency.change.includes("-")
+                              ? "text-red-500"
+                              : "text-green-600"
+                          }`}
+                        >
+                          {" "}
+                          {currency.change}%{" "}
+                        </span>
+                      </p>
                     </div>
                   </Card>
                 </a>
@@ -114,7 +94,49 @@ const Cryptocurrencies = (props) => {
             </Col>
           ))
         }
-      </Row>
+      </>
+    );
+  }
+
+  //if the data is fetched/not yet fetched and there is an error, show the error
+  if ((isSuccess && isError) || (!isFetching && isError)) {
+    return <div>{error}</div>;
+  }
+
+  return (
+    <div>
+      {!simplified && (
+        <h2 className="text-2xl font-semibold mb-2">
+          <RoughNotation
+            type="highlight"
+            color="#bf6583"
+            show={true}
+            animationDelay={1500}
+          >
+            Crypto
+          </RoughNotation>
+          currencies
+        </h2>
+      )}
+
+      {/* Search bar */}
+      {!simplified && (
+        <div className="pt-0 pb-5 md:pt-10 md:pb-5 mx-4 mb-4 w-[50%]">
+          <div className="bg-white dark:bg-gray-700 text-black dark:text-white flex items-center rounded-lg shadow-md md:shadow-xl">
+            <Input
+              placeholder="Filter Cryptocurrency"
+              type="search"
+              name="search"
+              className="w-[90%] rounded-l-full py-4 px-6 leading-tight focus:outline-none"
+              id="search"
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+      )}
+      <Row gutter={[24, 24]}>{content}</Row>
     </div>
   );
 };

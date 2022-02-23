@@ -34,11 +34,13 @@ export const cryptoAPI = createApi({
     //operations and requests form rapidapi	
 	getCryptos : builder.query({
 		query : (count) => createRequest(`/coins?limit=${count}`),
-	})
-
+	}),
+  getCryptoDetails : builder.query({
+    query : (coinId) => createRequest(`/coin/${coinId}`),
+  }),
   }),
 }); 
 
 
 // Export the auto-generated hooks for the queryes's endpoint
-export const { useGetCryptosQuery, } = cryptoAPI;
+export const { useGetCryptosQuery, useGetCryptoDetailsQuery } = cryptoAPI;

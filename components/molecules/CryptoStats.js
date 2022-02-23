@@ -6,7 +6,7 @@ const CryptoStats = ({title, value}) => {
     <Col lg={8} sm={24} className="mb-1 lg:mb-0">
       <Card
         hoverable
-        className="break-words bg-white dark:bg-gray-800 shadow-md rounded transform duration-300 ease-linear delay-150 hover:scale-110 hover:-rotate-6"
+        className="break-words bg-white dark:bg-gray-800 shadow-md rounded transform duration-300 ease-linear delay-150"
       >
         <Statistic title={title} value={value} />
       </Card>
