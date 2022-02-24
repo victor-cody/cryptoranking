@@ -21,11 +21,9 @@ const Logo = () => {
           />
         </Badge>
       </span> */}
-      <h2 className="text-white text-2xl [font-family: Lobster]">
+      <h2 className="text-white text-2xl font-[Lobster] hidden md:block">
         <Link href="/">
-          <a>
-            Cryptoverse
-          </a>
+          <a>Cryptoverse</a>
         </Link>
       </h2>
       <Button className="lg!hidden absolute right-[10px] top-[25px] text-lg !border-none sm:!block">
