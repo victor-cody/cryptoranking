@@ -18,7 +18,7 @@ import Logo from "../../atoms/Logo/Logo";
 
 const NavBar = () => {
   return (
-    <nav className="fixed flex [flex: 0.2] flex-col left-0 top-0 w-14 hover:w-64 md:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-0">
+    <nav className="fixed flex [flex: 0.2] flex-col left-0 top-0 w-14 hover:w-64 md:w-64 bg-[#7400b8] h-full text-white transition-all duration-300 border-none z-10 m-0">
       <Logo />
       <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow px-3">
         <ul className="flex flex-col py-4 space-y-1">
@@ -48,8 +48,11 @@ const NavBar = () => {
             <Link href="/news">news</Link>
           </NavbarItem>
         </ul>
-        <p className="mb-0 px-5 pt-6 pb-2 bg-[#1f2937] hidden md:block text-center text-sm">
-          <span className="text-base">Made with 💖 by <a href="https://twitter.com/Victor_codejs">Victor</a></span>
+        <p className="mb-0 px-5 pt-6 pb-2 bg-[hsl(278, 100%, 25%)] hidden md:block text-center text-sm">
+          <span className="text-base">
+            Made with 💖 by{" "}
+            <a href="https://twitter.com/Victor_codejs">Victor</a>
+          </span>
           <br />
           Copyright @ {new Date().getFullYear()}
           <br />

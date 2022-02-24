@@ -27,12 +27,39 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  /* color: hsl(278, 100%, 25%); */
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* heading-2 */
+
+.heading-2 {
+  @apply text-2xl my-4
+}
+
 .pages-container > * {
   @apply mt-8
+}
+
+.coin-description {
+  @apply mb-6
+}
+
+.coin-description h3{
+  @apply font-semibold text-xl my-2
+}
+
+.coin-description p {
+  @apply my-3 text-base opacity-90 text-gray-600 dark:text-white
+}
+
+.coin-description a {
+  @apply !text-[#0052ff]
+}
+
+.coin-link {
+  @apply flex justify-between items-center py-4 px-8 border-b-2 last:border-b-0 last:pb-2 hover:bg-gray-100
 }
