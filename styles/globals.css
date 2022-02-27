@@ -40,6 +40,10 @@ a {
   @apply text-2xl my-4
 }
 
+/* .side-border {
+  @apply relative px-2 after:absolute after:top-[50%] after:right-8 after:w-[50%] after:border-b-2 after:border-gray-400
+} */
+
 .pages-container > * {
   @apply mt-8
 }

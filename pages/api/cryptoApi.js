@@ -30,17 +30,21 @@ const createRequest = (url) => ({
 export const cryptoAPI = createApi({
   reducerPath: "cryptoAPI",
   baseQuery: fetchBaseQuery({ baseUrl }),
-  endpoints: builder => ({
-    //operations and requests form rapidapi	
-	getCryptos : builder.query({
-		query : (count) => createRequest(`/coins?limit=${count}`),
-	}),
-  getCryptoDetails : builder.query({
-    query : (coinId) => createRequest(`/coin/${coinId}`),
-  }),
+  endpoints: (builder) => ({
+    //operations and requests form rapidapi
+    getCryptos: builder.query({
+      query: (count) => createRequest(`/coins?limit=${count}`),
+    }),
+    getCryptoDetails: builder.query({
+      query: (coinId) => createRequest(`/coin/${coinId}`),
+    }),
+    getCryptoHistory: builder.query({
+      query: ({ coinId, timeperiod }) =>
+        createRequest(`/coin/${coinId}/history?timeperiod=${timeperiod}`),
+    }),
   }),
 }); 
 
 
 // Export the auto-generated hooks for the queryes's endpoint
-export const { useGetCryptosQuery, useGetCryptoDetailsQuery } = cryptoAPI;
+export const { useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } = cryptoAPI;

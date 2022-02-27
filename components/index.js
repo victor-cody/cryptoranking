@@ -1,5 +1,6 @@
 // organisms
 export { default as Navbar } from "./organisms/Navbar/Navbar.js";
+export { default as CryptoChart } from "./organisms/CryptoChart.js";
 
 // molecules
 export { default as Loader } from "./molecules/Loader.js";
