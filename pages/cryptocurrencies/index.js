@@ -55,7 +55,9 @@ const Cryptocurrencies = (props) => {
 
           cryptos?.map((currency, id) => (
             <Col xs={24} sm={12} lg={6} key={String(currency.uuid)}>
-              <Link href={`cryptocurrencies/${currency.uuid}`}>
+              <Link
+                href={`cryptocurrencies/${currency.uuid}`}
+              >
                 <a>
                   <Card
                     bordered={false}
@@ -65,15 +67,17 @@ const Cryptocurrencies = (props) => {
                     extra={
                       // eslint-disable-next-line
                       <img
-                        className="w-10"
+                        className="ml-1"
+                        width={40}
+                        height={40}
                         alt={`${currency.name} logo`}
                         src={currency.iconUrl}
                       />
                     }
                   >
                     <div className="text-[13px]">
-                      <p>Price: $ {millify(currency.price)}</p>
-                      <p>Market Cap: $ {millify(currency.marketCap)}</p>
+                      <p>Price: ${millify(currency.price)}</p>
+                      <p>Market Cap: ${millify(currency.marketCap)}</p>
                       <p>
                         Daily Change:{" "}
                         <span

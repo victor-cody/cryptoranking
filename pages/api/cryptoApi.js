@@ -6,17 +6,6 @@ const cryptoHeaders = {
     'x-rapidapi-key': process.env.NEXT_PUBLIC_CRYPTOAPI_HOST_KEY
 }
 
-//request params
-const params =  {
-    referenceCurrencyUuid: 'yhjMzLPhuIDl',
-    timePeriod: '24h',
-    tiers: '1',
-    orderBy: 'marketCap',
-    orderDirection: 'desc',
-    limit: '50',
-    offset: '0'
-  }
-
 //base URL  
 const baseUrl = "https://coinranking1.p.rapidapi.com";
 
@@ -30,17 +19,21 @@ const createRequest = (url) => ({
 export const cryptoAPI = createApi({
   reducerPath: "cryptoAPI",
   baseQuery: fetchBaseQuery({ baseUrl }),
-  endpoints: builder => ({
-    //operations and requests form rapidapi	
-	getCryptos : builder.query({
-		query : (count) => createRequest(`/coins?limit=${count}`),
-	}),
-  getCryptoDetails : builder.query({
-    query : (coinId) => createRequest(`/coin/${coinId}`),
-  }),
+  endpoints: (builder) => ({
+    //operations and requests form rapidapi
+    getCryptos: builder.query({
+      query: (count) => createRequest(`/coins?limit=${count}`),
+    }),
+    getCryptoDetails: builder.query({
+      query: (coinId) => createRequest(`/coin/${coinId}`),
+    }),
+    getCryptoHistory: builder.query({
+      query: ({ coinId, timeperiod }) =>
+        createRequest(`/coin/${coinId}/history?timeperiod=${timeperiod}`),
+    }),
   }),
 }); 
 
 
 // Export the auto-generated hooks for the queryes's endpoint
-export const { useGetCryptosQuery, useGetCryptoDetailsQuery } = cryptoAPI;
+export const { useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } = cryptoAPI;
