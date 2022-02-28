@@ -68,6 +68,7 @@ const CryptoNews = (props) => {
                       // eslint-disable-next-line
                       <img
                         className="max-h-[250px] max-w-[50%]"
+                        height={250}
                         alt={`${article?.name} cover image`}
                         src={
                           article?.image?.thumbnail?.contentUrl ||

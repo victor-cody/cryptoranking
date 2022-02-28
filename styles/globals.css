@@ -21,11 +21,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Avenir', sans-serif;
-  @apply min-h-screen overflow-x-hidden flex items-center justify-center
+  @apply min-h-screen overflow-x-hidden flex items-center justify-center !bg-[hsl(0,0%,98%)]
 }
 
 a {
-  color: inherit;
+  /* color: inherit; */
   text-decoration: none;
   /* color: hsl(278, 100%, 25%); */
 }
@@ -37,7 +37,7 @@ a {
 /* heading-2 */
 
 .heading-2 {
-  @apply text-2xl my-4
+  @apply text-xl my-4
 }
 
 /* .side-border {
@@ -65,5 +65,5 @@ a {
 }
 
 .coin-link {
-  @apply flex justify-between items-center py-4 px-8 border-b-2 last:border-b-0 last:pb-2 hover:bg-gray-100
+  @apply flex justify-between items-center py-3 px-8 border-b-2 last:border-b-0 last:pb-1 hover:bg-gray-100
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // import Image from "next/image";
 
@@ -29,7 +29,11 @@ import {
 
 import {useGetCryptoDetailsQuery, useGetCryptoHistoryQuery, useGetCryptosQuery} from "../api/cryptoApi.js";
 
-import { CryptoStatsRow, CryptoChart ,Loader } from "../../components/index.js";
+import {
+  CryptoStatsRow,
+  CryptoChart,
+  TimeRange, Loader,
+} from "../../components/index.js";
 
 //
 const { Option, OptGroup } = Select;
@@ -37,13 +41,11 @@ const { Option, OptGroup } = Select;
 const CryptoDetails = () => {
   const router = useRouter();
   const { id } = router.query;
-  console.log(router.query);
-
   
   const [timeperiod, setTimeperiod] = useState("7d");
 
   // time
-  const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
+  const timeRange = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
   const { data, isFetching } =
     useGetCryptoDetailsQuery(id);
@@ -53,16 +55,12 @@ const CryptoDetails = () => {
 	//
 	const cryptoDetails = data?.data?.coin;
 
-  // content to be displayed
-  let content;
-
-
   //
   const stats = [
     {
       title: "Price to USD",
-      value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`,
-      icon: <DollarCircleOutlined style={{color:"#52b788"}} />,
+      value: `$${cryptoDetails?.price && millify(cryptoDetails?.price)}`,
+      // icon: <DollarCircleOutlined style={{color:"#52b788"}} />,
     },
     // {
     //   title: "Volume (24h)",
@@ -71,15 +69,15 @@ const CryptoDetails = () => {
     // },
     {
       title: "Market Cap",
-      value: `$ ${
+      value: `$${
         cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)
       }`,
-      icon: <DollarCircleOutlined style={{color:"#52b788"}} />,
+      // icon: <DollarCircleOutlined style={{color:"#52b788"}} />,
     },
     {
       title: "Popularity",
       value: `#${cryptoDetails?.rank}`,
-      icon: <NumberOutlined />,
+      // icon: <NumberOutlined />,
     },
     {
       title: `Price Changed (${timeperiod})`,
@@ -95,15 +93,15 @@ const CryptoDetails = () => {
           {cryptoDetails?.change}%{" "}
         </span>
       ),
-      icon: <FundOutlined style={{color:"#013a63"}} />,
+      // icon: <FundOutlined style={{color:"#013a63"}} />,
     },
     {
       title: "All time high (daily avg)",
-      value: `$ ${
+      value: `$${
         cryptoDetails?.allTimeHigh?.price &&
         millify(cryptoDetails?.allTimeHigh?.price)
       }`,
-      icon: <TrophyOutlined style={{color:"#f3722c"}} />,
+      // icon: <TrophyOutlined style={{color:"#f3722c"}} />,
     },
   ];
 
@@ -112,12 +110,12 @@ const CryptoDetails = () => {
     {
       title: "Number Of Markets",
       value: cryptoDetails?.numberOfMarkets,
-      icon: <FundOutlined style = {{color:"#013a63"}} />,
+      // icon: <FundOutlined style = {{color:"#013a63"}} />,
     },
     {
       title: "Total Exchanges",
       value: cryptoDetails?.numberOfExchanges,
-      icon: <MoneyCollectOutlined style = {{color:"#ae2012"}} />,
+      // icon: <MoneyCollectOutlined style = {{color:"#ae2012"}} />,
     },
     {
       title: "Aprroved Supply",
@@ -126,22 +124,22 @@ const CryptoDetails = () => {
       ) : (
         <StopOutlined />
       ),
-      icon: <ExclamationCircleOutlined />,
+      // icon: <ExclamationCircleOutlined />,
     },
     {
       title: "Total Supply",
-      value: `$ ${
+      value: `$${
         cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)
       }`,
-      icon: <ExclamationCircleOutlined />,
+      // icon: <ExclamationCircleOutlined />,
     },
     {
       title: "Circulating Supply",
-      value: `$ ${
+      value: `$${
         cryptoDetails?.supply?.circulating &&
         millify(cryptoDetails?.supply?.circulating)
       }`,
-      icon: <ExclamationCircleOutlined />,
+      // icon: <ExclamationCircleOutlined />,
     },
   ];
 
@@ -154,29 +152,29 @@ const CryptoDetails = () => {
     <div>
       <section>
         <Row gutter={[2, 2]}>
-          <Col xs={24} className="flex justify-start items-center">
+          <Col xs={24} className="flex justify-start items-center text-blue-500 !text-xl">
             <Link
-              className=" text-xl"
+              className=""
               href="/cryptocurrencies"
               title={`View cryptocurrencies stats`}
             >
-              <a>Price Charts</a>
+              <a>Crypto Charts</a>
             </Link>
 
-            <svg height="9" viewBox="0 0 5 9" width="5" className="mx-4">
+            <svg height="9" viewBox="0 0 5 9" width="5" className="mx-3">
               <path d="M5 4.5a.503.503 0 01-.143.348L.903 9 0 8.303 3.622 4.5 0 .697.903 0l3.954 4.152c.095.1.143.224.143.348z"></path>
             </svg>
 
             <Link
-              className="capitalize text-xl"
+              className="capitalize"
               href={`/cryptocurrencies/${cryptoDetails?.uuid}`}
               title={`View ${cryptoDetails?.name} stats`}
             >
-              <a>{cryptoDetails?.name} Price</a>
+              <a>{cryptoDetails?.name}</a>
             </Link>
           </Col>
 
-          <Col span={24} className="flex justify-start items-center pt-5 pb-2 ">
+          <Col span={24} className="flex justify-start items-center pt-5 pb-5 border-b-2 border-gray-200 mb-2">
             {
               // eslint-disable-next-line
               <img
@@ -187,21 +185,23 @@ const CryptoDetails = () => {
             }
 
             <h2 className="font-semibold text-3xl">{cryptoDetails?.name}</h2>
-            <span className="text-gray-600 text-base ml-2 mt-2">
+            <span className="text-gray-600 text-base ml-2">
               ({cryptoDetails?.symbol} / USD)
             </span>
-          </Col>
+          {/* </Col>
           <Col
             span={24}
             className="relative pt-5 pb-8 ml-3 dark:border-white-secondary after:absolute after:bottom-1 after:left-[10%] after:w-[70%] after:border-b-2 after:border-gray-400"
-          >
-            <p className="text-base text-gray-700">
-              View {cryptoDetails?.name + "s"} live price in US Dollar (USD),
+          > */}
+            <p className="ml-2 text-base text-gray-600">
+              View {cryptoDetails?.name + "'s"} live price in US Dollar (USD),
               value statistics, market cap, supply and more.
             </p>
           </Col>
         </Row>
       </section>
+
+      <TimeRange setTime={setTimeperiod} time={timeRange}  />
 
       <CryptoChart
         coinHistory={coinHistory}
@@ -236,8 +236,8 @@ const CryptoDetails = () => {
           >
             {cryptoDetails?.links?.map((link) => (
               <Row className="coin-link" key={link?.name}>
-                <h5 className="capitalize text-base">{link?.type}</h5>
-                <a href={link?.url} target="_blank" rel="noreferrer">
+                <span className="capitalize text-base">{link?.type}</span>
+                <a className="text-blue-500" href={link?.url} target="_blank" rel="noreferrer">
                   {link?.name}
                 </a>
               </Row>

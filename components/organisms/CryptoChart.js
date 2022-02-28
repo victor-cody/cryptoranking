@@ -82,7 +82,7 @@ const CryptoChart = ({ coinHistory, currentPrice, coinName }) => {
         <Card className="break-words bg-white dark:bg-gray-800 shadow-md rounded my-4">
           <Row gutter={[32, 32]} className="pb-2 border-b-2">
             <div className="w-full flex justify-between items-center px-2 py-3">
-              <h3 className="text-2xl font-semibold">
+              <h3 className="text-xl">
                 Change:{" "}
                 <span
                   className={`${
@@ -94,7 +94,7 @@ const CryptoChart = ({ coinHistory, currentPrice, coinName }) => {
                   {coinHistory?.data?.change}%
                 </span>{" "}
               </h3>
-              <h3 className="text-2xl font-semibold">
+              <h3 className="text-xl">
                 Current {coinName} Price: $ {currentPrice}
               </h3>
             </div>

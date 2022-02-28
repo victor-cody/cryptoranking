@@ -67,7 +67,9 @@ const Cryptocurrencies = (props) => {
                     extra={
                       // eslint-disable-next-line
                       <img
-                        className="w-10 ml-1 max-h-10"
+                        className="ml-1"
+                        width={40}
+                        height={40}
                         alt={`${currency.name} logo`}
                         src={currency.iconUrl}
                       />
