@@ -6,17 +6,6 @@ const cryptoHeaders = {
     'x-rapidapi-key': process.env.NEXT_PUBLIC_CRYPTOAPI_HOST_KEY
 }
 
-//request params
-const params =  {
-    referenceCurrencyUuid: 'yhjMzLPhuIDl',
-    timePeriod: '24h',
-    tiers: '1',
-    orderBy: 'marketCap',
-    orderDirection: 'desc',
-    limit: '50',
-    offset: '0'
-  }
-
 //base URL  
 const baseUrl = "https://coinranking1.p.rapidapi.com";
 

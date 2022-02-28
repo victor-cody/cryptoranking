@@ -3,7 +3,6 @@ import Head from "next/head";
 
 const MetaTags = ({ title }) => {
   return (
-    <>
       <Head>
         <meta
           name="apple-mobile-web-app-status-bar-style"
@@ -49,10 +48,22 @@ const MetaTags = ({ title }) => {
           property="twitter:image"
           content="https://codewithvictor.netlify.app/assets/site-banner.png"
         />
+         {/* Buy Me A Coffee */}
+      {/* <script
+        data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="molipa"
+        data-description="Support me on Buy me a coffee!"
+        data-message="
+         If you're enjoying cryptobase - the online hub for all things crypto, consider supporting me with a coffee ☕️"
+        data-color="#FFDD00"
+        data-position="Right"
+        data-x_margin="18"
+        data-y_margin="18"
+      ></script> */}
       </Head>
-      
-    </>
-  );
+      );
 };
 
 export default MetaTags;

@@ -1,10 +1,10 @@
 import Script from "next/script";
 
-import "../styles/globals.css"; //
+// styles
 import "antd/dist/antd.css"; // antsedign styles
-import "tailwindcss/tailwind.css"; // tailwind jit
+import "../styles/globals.css"; //
 
-
+// import "tailwindcss/tailwind.css"; // tailwind jit
 
 import store from '../redux/store.js' //redux store
 import {Provider} from 'react-redux'; //redux
@@ -16,20 +16,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
     <MetaTags/>
-      {/* Buy Me A Coffee */}
-      <Script
-        data-name="BMC-Widget"
-        data-cfasync="false"
-        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-        data-id="molipa"
-        data-description="Support me on Buy me a coffee!"
-        data-message="
-         If you're enjoying cryptobase - the online hub for all things crypto, consider supporting me with a coffee ☕️"
-        data-color="#FFDD00"
-        data-position="Right"
-        data-x_margin="18"
-        data-y_margin="18"
-      ></Script>
     <Provider store={store}>
       <div className="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased w-screen dark:bg-gray-700 text-black dark:text-white">
         <Navbar />
