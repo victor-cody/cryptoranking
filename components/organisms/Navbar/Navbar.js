@@ -27,7 +27,7 @@ const NavBar = () => {
         showSideBar ? "w-64" : ""
       } md:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-"`}
     >
-      <Logo toggleSideBar={setShowSideBar} />
+      <Logo toggleSideBar={setShowSideBar} showLogo={showSideBar} />
       <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow px-3">
         <ul className="flex flex-col py-4 space-y-1">
           <li className="px-5 hidden md:block">

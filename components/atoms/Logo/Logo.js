@@ -4,7 +4,7 @@ import Link from "next/link";
 
 // import icon from "/images/cryptocurrency.png";
 
-const Logo = ({toggleSideBar}) => {
+const Logo = ({toggleSideBar, showLogo}) => {
   
   return (
     <div className="flex items-center justify-around max-w-full px-5 py-7 bg-[#111827] ">
@@ -22,16 +22,23 @@ const Logo = ({toggleSideBar}) => {
           />
         </Badge>
       </span> */}
-      <h2 className="text-white text-2xl font-[Lobster] hidden md:block logo">
+      <h2
+        className={`text-white text-2xl font-[Lobster] hidden md:block ${
+          showLogo ? "block" : "hidden"
+        } logo`}
+      >
         <Link href="/">
           <a>Crypto Base</a>
         </Link>
       </h2>
       <Button className="lg:!hidden md:!hidden absolute right-[10px] top-[10px] text-lg hover:bg-inherit border-none sm:!block">
-        <MenuOutlined style={{color:"#fff"}} onClick={(e) => {
-          e.preventDefault();
-          toggleSideBar(prevValue => !prevValue);
-        } } />
+        <MenuOutlined
+          style={{ color: "#fff" }}
+          onClick={(e) => {
+            e.preventDefault();
+            toggleSideBar((prevValue) => !prevValue);
+          }}
+        />
       </Button>
     </div>
   );
