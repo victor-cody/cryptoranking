@@ -34,6 +34,10 @@ a {
   box-sizing: border-box;
 }
 
+.logo {
+  font-family: 'Lobster', sans-serif;
+}
+
 /* heading-2 */
 
 .heading-2 {

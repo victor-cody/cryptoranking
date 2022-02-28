@@ -2,9 +2,10 @@ import { Badge, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
-import icon from "../../../public/images/cryptocurrency.png";
+// import icon from "/images/cryptocurrency.png";
 
-const Logo = () => {
+const Logo = ({toggleSideBar}) => {
+  
   return (
     <div className="flex items-center justify-around max-w-full px-5 py-7 bg-[#111827] ">
       {/* <span className="mr-2">
@@ -21,13 +22,16 @@ const Logo = () => {
           />
         </Badge>
       </span> */}
-      <h2 className="text-white text-2xl font-[Lobster] hidden md:block">
+      <h2 className="text-white text-2xl font-[Lobster] hidden md:block logo">
         <Link href="/">
-          <a>Cryptoverse</a>
+          <a>Crypto Base</a>
         </Link>
       </h2>
-      <Button className="lg!hidden absolute right-[10px] top-[25px] text-lg !border-none sm:!block">
-        <MenuOutlined />
+      <Button className="lg:!hidden md:!hidden absolute right-[10px] top-[10px] text-lg hover:bg-inherit border-none sm:!block">
+        <MenuOutlined style={{color:"#fff"}} onClick={(e) => {
+          e.preventDefault();
+          toggleSideBar(prevValue => !prevValue);
+        } } />
       </Button>
     </div>
   );
