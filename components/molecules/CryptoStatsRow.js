@@ -26,7 +26,7 @@ const CryptoStatsRow = (props) => {
               </span>{" "}
               {title}{" "}
             </span>
-            <span className={`text-lg`}> {value} </span>
+            <span className={`lg:text-lg sm:text-base`}> {value} </span>
           </Row>
         ))}
       </Card>
