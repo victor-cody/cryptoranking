@@ -152,7 +152,10 @@ const CryptoDetails = () => {
     <div>
       <section>
         <Row gutter={[2, 2]}>
-          <Col xs={24} className="flex justify-start items-center text-blue-500 !text-xl">
+          <Col
+            xs={24}
+            className="flex justify-start items-center text-blue-500 !text-xl"
+          >
             <Link
               className=""
               href="/cryptocurrencies"
@@ -174,7 +177,10 @@ const CryptoDetails = () => {
             </Link>
           </Col>
 
-          <Col span={24} className="flex justify-start items-center pt-5 pb-5 border-b-2 border-gray-200 mb-2">
+          <Col
+            span={24}
+            className="flex justify-start items-center pt-5 pb-5 border-b-2 border-gray-200 mb-2"
+          >
             {
               // eslint-disable-next-line
               <img
@@ -188,20 +194,20 @@ const CryptoDetails = () => {
             <span className="text-gray-600 text-base ml-2">
               ({cryptoDetails?.symbol} / USD)
             </span>
-          {/* </Col>
+            {/* </Col>
           <Col
             span={24}
             className="relative pt-5 pb-8 ml-3 dark:border-white-secondary after:absolute after:bottom-1 after:left-[10%] after:w-[70%] after:border-b-2 after:border-gray-400"
           > */}
-            <p className="ml-2 text-base text-gray-600">
+            {/* <p className="ml-2 text-base text-gray-600">
               View {cryptoDetails?.name + "'s"} live price in US Dollar (USD),
               value statistics, market cap, supply and more.
-            </p>
+            </p> */}
           </Col>
         </Row>
       </section>
 
-      <TimeRange setTime={setTimeperiod} time={timeRange}  />
+      <TimeRange setTime={setTimeperiod} time={timeRange} />
 
       <CryptoChart
         coinHistory={coinHistory}
@@ -210,9 +216,17 @@ const CryptoDetails = () => {
       />
 
       <Row gutter={[32, 32]}>
-        <CryptoStatsRow title="Market stats" stats={stats} />
+        <CryptoStatsRow
+          title="Market stats"
+          stats={stats}
+          description={`An overview showing the statistics of ${cryptoDetails?.name}, such as the base and quote currency, the rank, and trading volume.`}
+        />
 
-        <CryptoStatsRow title="More stats info" stats={genericStats} />
+        <CryptoStatsRow
+          title="More stats info"
+          stats={genericStats}
+          description={`More generic stats on ${cryptoDetails?.name}.`}
+        />
       </Row>
 
       <section className="">
@@ -237,7 +251,12 @@ const CryptoDetails = () => {
             {cryptoDetails?.links?.map((link) => (
               <Row className="coin-link" key={link?.name}>
                 <span className="capitalize text-base">{link?.type}</span>
-                <a className="text-blue-500" href={link?.url} target="_blank" rel="noreferrer">
+                <a
+                  className="text-blue-500"
+                  href={link?.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {link?.name}
                 </a>
               </Row>
