@@ -3,20 +3,22 @@ import { Col, Card, Row } from "antd";
 
 const CryptoStatsRow = (props) => {
 	//
-	const {title, stats} = props;
+	const {title, stats, description} = props;
 
 	return (
     <Col xs={24} sm={24} lg={12} className="my-3">
+      <h2 className="heading-2 side-border pb-1">
+        {title}
+      </h2>
+      <p className="text-base text-gray-600">{description}</p>
       <Card
         bordered={false}
         className="shadow-md rounded bg-white dark:bg-gray-800 my-4"
       >
-        <h2 className="heading-2 side-border pb-2 border-b-2 border-gray-300">{title}</h2>
-
         {stats.map(({ icon, title, value }, id) => (
           <Row
             key={String(id)}
-            className="flex justify-around items-center break-words py-5 px-4 border-b-2 last:border-b-0 last:pb-3 hover:bg-gray-100 hover:cursor-pointer"
+            className="flex justify-between items-center break-words py-5 px-4 border-b-2 last:border-b-0 last:pb-3 hover:bg-gray-100 hover:cursor-pointer"
           >
             <span className="flex justify-between items-center font-semibold">
               {" "}
@@ -26,7 +28,7 @@ const CryptoStatsRow = (props) => {
               </span>{" "}
               {title}{" "}
             </span>
-            <span className={`text-lg`}> {value} </span>
+            <span className={`font-semibold text-base`}> {value} </span>
           </Row>
         ))}
       </Card>

@@ -5,7 +5,7 @@ import { Select } from "antd";
 const TimeRange = ({ setTime, time}) => {
   return (
     <div className="flex justify-between items-center w-56 mt-2">
-      <label htmlFor="timeperiod" className="text-xl">
+      <label htmlFor="timeperiod" className="text-lg font-semibold">
         {" "}
         Set time range:
       </label>

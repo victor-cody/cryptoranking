@@ -3,4 +3,8 @@ module.exports = {
   images: {
     domains: ['cdn.coinranking.com/'],
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 }
