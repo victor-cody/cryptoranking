@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react"; //react hooks
 import Link from "next/link";
+
+//redux state management
+import { useSelector } from "react-redux";
 
 import { Badge } from "antd";
 import {
@@ -11,23 +13,21 @@ import {
 } from "@ant-design/icons"; //antdesign icons
 
 //navbar items
-import NavbarItem from "../../atoms/Navbar-Item/NavbarItem"; 
+import NavbarItem from "../../atoms/Navbar-Item/NavbarItem";
 
 //logo
-import Logo from "../../atoms/Logo/Logo"; 
+import Logo from "../../atoms/Logo/Logo";
 
 const NavBar = () => {
-
-    const [showSideBar, setShowSideBar] = useState(false);
-
+  const showNavBar = useSelector((state) => state.navBarState.showNavBar);
 
   return (
     <nav
       className={`fixed flex [flex: 0.2] flex-col left-0 top-0 w-14 ${
-        showSideBar ? "w-64" : ""
+        showNavBar ? "w-64" : ""
       } md:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-"`}
     >
-      <Logo toggleSideBar={setShowSideBar} showLogo={showSideBar} />
+      <Logo />
       <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow px-3">
         <ul className="flex flex-col py-4 space-y-1">
           <li className="px-5 hidden md:block">
@@ -56,12 +56,17 @@ const NavBar = () => {
             <Link href="/news">news</Link>
           </NavbarItem>
         </ul>
-        <p className="mb-0 px-5 pt-6 pb-2 bg-[#1f2937] hidden md:block text-center text-sm">
-          <span className="text-base">
+        <p className="mb-0 px-5 pt-6 pb-4 bg-[#1f2937] hidden md:block text-center text-sm tracking-wide">
+          <span className="text-base pb-2">
             Made with 💖 by{" "}
-            <a href="https://twitter.com/Victor_codejs">Victor</a>
+            <a
+              href="https://twitter.com/Victor_codejs"
+              className="text-blue-600"
+            >
+              Victor
+            </a>
           </span>
-          <br />
+          <br className="pb-1" />
           Copyright @ {new Date().getFullYear()}
           <br />
           All Rights Reversed

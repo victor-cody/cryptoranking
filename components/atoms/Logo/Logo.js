@@ -1,11 +1,17 @@
-import { Badge, Button } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
+//redux state management
+import { useSelector, useDispatch } from "react-redux";
+import { toggleNavBar } from "../../../redux/navBarState";
+
+import { Button } from "antd";
+import { AlignLeftOutlined, CloseOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
 // import icon from "/images/cryptocurrency.png";
 
-const Logo = ({toggleSideBar, showLogo}) => {
-  
+const Logo = () => {
+  const showNavBar = useSelector((state) => state.navBarState.showNavBar);
+  const dispatch = useDispatch();
+
   return (
     <div className="flex items-center justify-around max-w-full px-5 py-7 bg-[#111827] ">
       {/* <span className="mr-2">
@@ -24,21 +30,29 @@ const Logo = ({toggleSideBar, showLogo}) => {
       </span> */}
       <h2
         className={`text-white text-2xl font-[Lobster] hidden md:block ${
-          showLogo ? "block" : "hidden"
+          showNavBar ? "block" : "hidden"
         } logo`}
       >
         <Link href="/">
           <a>Crypto Base</a>
         </Link>
       </h2>
-      <Button className="lg:!hidden md:!hidden absolute right-[10px] top-[10px] text-lg hover:bg-inherit border-none sm:!block">
-        <MenuOutlined
-          style={{ color: "#fff" }}
-          onClick={(e) => {
-            e.preventDefault();
-            toggleSideBar((prevValue) => !prevValue);
-          }}
-        />
+      <Button
+        className="lg:!hidden md:!hidden absolute right-[10px] top-[10px] text-lg hover:bg-inherit !border-none bg-inherit sm:!block"
+        onClick={(e) => {
+          e.preventDefault();
+          dispatch(toggleNavBar());
+        }}
+      >
+        {showNavBar ? (
+          <CloseOutlined className="hover:bg-inherit bg-inherit"
+            style={{ color: "#fff" }}
+          />
+        ) : (
+          <AlignLeftOutlined className="hover:bg-inherit bg-inherit"
+            style={{ color: "#fff" }}
+          />
+        )}
       </Button>
     </div>
   );
