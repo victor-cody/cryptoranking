@@ -1,5 +1,5 @@
 import React from 'react';
-import {BmcButton} from '../index.js';
+import { BmcButton, GithubStars } from "../index.js";
 
 const Hero = () => {
 	return (
@@ -11,14 +11,14 @@ const Hero = () => {
         <h1 className="font-bold text-3xl lg:text-[2.75rem] xl:text-[2.75rem] lg:leading-[3rem] my-2">
           The web storehouse for cryptocurrencies info.
         </h1>
-        <p className="text-light text-[#ECF2F5] my-2 mt-3 text-xs lg:text-sm xl:text-sm">
+        <p className="text-light text-[#868a8b] my-2 mt-3 text-xs lg:text-sm xl:text-sm">
           Crypto Ranking is the online storehouse for all things crypto, with
           in-depth data about all cryptocurrencies, crypto markets, exchanges,
           popular cryptocurrency news and much more all in a single web
           application, and much more features, make the app amazing! 🤟
         </p>
 		<div className="flex mt-2">
-			<BmcButton />
+			<BmcButton /> <GithubStars
 		</div>
       </div>
       <div className="w-full lg:w-6/12 xl:w-6/12 h-auto lg:h-full xl:h-full flex items-center justify-center flex-col relative bg-pattern-hero pb-10 lg:pb-0 xl:pb-0">
