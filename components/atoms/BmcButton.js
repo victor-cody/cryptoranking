@@ -2,8 +2,8 @@ import React from "react";
 
 const BmcButton = () => {
   return (
-    <button className="!p-0 !w-auto !h-auto !m-auto shine !ml-1">
       <a
+	  className="!p-1 !w-auto !h-auto !m-auto shine !mx-1"
         href="https://www.buymeacoffee.com/molipa"
         target="_blank"
         rel="noreferrer"
@@ -15,7 +15,6 @@ const BmcButton = () => {
           className="h-10"
         />
       </a>
-    </button>
   );
 };
 

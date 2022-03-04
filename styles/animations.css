@@ -54,3 +54,25 @@
     transform: scale(1);
   }
 }
+
+/* Shine Button Animation */
+.shine {
+  position: relative;
+  overflow: hidden;
+  transition: all 100ms linear;
+}
+.shine::after {
+  content: "";
+  top: -50%;
+  display: block;
+  width: 40%;
+  height: 200%;
+  left: -55%;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  transform: rotate(25deg);
+  transition: 0.5s;
+}
+.shine:hover::after {
+  left: 120%;
+}

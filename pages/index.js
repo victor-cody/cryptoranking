@@ -15,18 +15,17 @@ import CryptoNews from "./news";
 import { useGetCryptosQuery } from "./api/cryptoApi";
 
 export default function Home() {
+
   //function to give the CryptoStats component headers diffrent colors
   function applyColors() {
     const CryptoStatsHeaders = document.querySelectorAll(
       ".ant-statistic-title"
     );
-    console.log(CryptoStatsHeaders);
 
     //colors array
     const colors = ["#d13a79", "#4083d2", "#e68c7c", "#545682", "#377d6f"];
 
     [...CryptoStatsHeaders].forEach((header, i) => {
-      // header.className = `text-[${colors[i]}] font-bold text-lg mb-3`;
       header.style = `color:${colors[i]}; font-size: 15px; font-weight: 700;`;
     });
   }
@@ -37,13 +36,12 @@ export default function Home() {
 
   const annotation = useRef(false);
 
-  let content; // content to be displayed
+  let content; //content to be displayed
 
   const globalStats = data?.data?.stats;
 
   useEffect(() => {
     if (isSuccess && !isError) {
-      // setGlobalStats(data?.data?.stats)
       applyColors();
       window.setTimeout(() => {
         annotation.current = true;
@@ -52,10 +50,12 @@ export default function Home() {
     // eslint-disable-next-line
   }, [isFetching, isSuccess]);
 
+
   //if the data is not yet fetched, show a loading indicator
   if (isFetching) {
     content = <GridLoadingSkeleton count={5} sm={24} lg={8} />;
   }
+
   //if the data is fetched and there is no error, show the data
   if (isSuccess && !isError) {
     content = (
@@ -79,9 +79,9 @@ export default function Home() {
         />
       </>
     );
-    applyColors();
-    // setTimeOut(1500, applyColors)
+    // applyColors();
   }
+  
   //if the data is fetched/not yet fetched and there is an error, show the error
   if ((isSuccess && isError) || (!isFetching && isError)) {
     content = <div>{error}</div>;
