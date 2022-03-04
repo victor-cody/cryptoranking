@@ -1,7 +1,7 @@
 import React from "react";
 
 //redux state management
-import { toggleNavBar } from "../../../redux/navBarState";
+import { toggleNavBar } from "../../redux/navBarState";
 import { useDispatch } from "react-redux";
 
 const NavbarItem = ({ children, icon }) => {

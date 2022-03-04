@@ -5,7 +5,7 @@ import Link from "next/link";
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 // components
-import { CryptoStats, GridLoadingSkeleton} from "../components";
+import { Hero, CryptoStats, GridLoadingSkeleton} from "../components";
 
 // pages
 import Cryptocurrencies from './cryptocurrencies';
@@ -88,6 +88,8 @@ export default function Home() {
   }
 
   return (
+    <>
+    <Hero />
     <main className="">
       <RoughNotationGroup show={annotation}>
         <h2 className="text-2xl font-semibold mb-5">
@@ -121,5 +123,6 @@ export default function Home() {
         <CryptoNews simplified />
       </RoughNotationGroup>
     </main>
+    </>
   );
 }
