@@ -1,6 +1,6 @@
 //redux state management
 import { useSelector, useDispatch } from "react-redux";
-import { toggleNavBar } from "../../../redux/navBarState";
+import { toggleNavBar } from "../../redux/navBarState";
 
 import { Button } from "antd";
 import { AlignLeftOutlined, CloseOutlined } from "@ant-design/icons";

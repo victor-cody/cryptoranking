@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <div className="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased w-screen dark:bg-gray-700 text-black dark:text-white">
         <Navbar />
-        <div className="pages-container max-w-full h-full fixed right-0 top-0 overflow-y-auto ml-14 md:ml-64 mt-4 mb-2 pb-4  px-4">
+        <div className="max-w-full h-full fixed right-0 top-0 overflow-y-auto ml-14 md:ml-64 mt-4 mb-2 pb-4  px-2">
           <Component {...pageProps} />
         </div>
       </div>

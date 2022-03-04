@@ -13,10 +13,10 @@ import {
 } from "@ant-design/icons"; //antdesign icons
 
 //navbar items
-import NavbarItem from "../../atoms/Navbar-Item/NavbarItem";
+import NavbarItem from "../atoms/NavbarItem";
 
 //logo
-import Logo from "../../atoms/Logo/Logo";
+import Logo from "../atoms/Logo";
 
 const NavBar = () => {
   const showNavBar = useSelector((state) => state.navBarState.showNavBar);
