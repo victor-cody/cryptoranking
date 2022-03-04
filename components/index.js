@@ -12,4 +12,5 @@ export { default as CryptoStats } from "./molecules/CryptoStats.js";
 export { default as CustomStatistic } from "./molecules/CustomStatistic.js";
 
 //atoms
+export { default as BmcButton } from "./atoms/BmcButton.js";
 export { default as TimeRange } from "./atoms/TimeRange.js";

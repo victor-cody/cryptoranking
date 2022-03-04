@@ -1,4 +1,5 @@
 import React from 'react';
+import {BmcButton} from '../index.js';
 
 const Hero = () => {
 	return (
@@ -16,6 +17,9 @@ const Hero = () => {
           popular cryptocurrency news and much more all in a single web
           application, and much more features, make the app amazing! 🤟
         </p>
+		<div className="flex mt-2">
+			<BmcButton />
+		</div>
       </div>
       <div className="w-full lg:w-6/12 xl:w-6/12 h-auto lg:h-full xl:h-full flex items-center justify-center flex-col relative bg-pattern-hero pb-10 lg:pb-0 xl:pb-0">
 		  <div className="absolute h-full w-full flex items-center justify-center">
