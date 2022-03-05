@@ -33,23 +33,23 @@ const Logo = () => {
           showNavBar ? "block" : "hidden"
         } logo`}
       >
-        <Link href="/">
-          <a>Crypto Base</a>
+        <Link href="/" className="logo">
+          <a>Crypto Ranking</a>
         </Link>
       </h2>
       <Button
-        className="lg:!hidden lg:!hidden absolute right-[10px] top-[10px] text-lg hover:bg-inherit !border-none bg-inherit sm:!block"
+        className="lg:!hidden absolute right-[10px] top-[10px] text-lg focus:bg-transparent !border-none bg-transparent sm:!block"
         onClick={(e) => {
           e.preventDefault();
           dispatch(toggleNavBar());
         }}
       >
         {showNavBar ? (
-          <CloseOutlined className="hover:bg-inherit bg-inherit"
+          <CloseOutlined className="focus:bg-transparent bg-transparent"
             style={{ color: "#fff" }}
           />
         ) : (
-          <AlignLeftOutlined className="hover:bg-inherit bg-inherit"
+          <AlignLeftOutlined className="focus:bg-transparent bg-transparent"
             style={{ color: "#fff" }}
           />
         )}

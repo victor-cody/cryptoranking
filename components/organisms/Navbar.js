@@ -24,7 +24,7 @@ const NavBar = () => {
   return (
     <nav
       className={`fixed flex [flex: 0.2] flex-col left-0 top-0 w-14 ${
-        showNavBar ? "w-64" : ""
+        showNavBar ? "w-60" : ""
       } md:w-16 lg:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-"`}
     >
       <Logo />
