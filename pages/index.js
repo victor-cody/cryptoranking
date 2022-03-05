@@ -79,7 +79,6 @@ export default function Home() {
         />
       </>
     );
-    // applyColors();
   }
   
   //if the data is fetched/not yet fetched and there is an error, show the error
