@@ -4,7 +4,7 @@ import { BmcButton, GithubStars } from "../index.js";
 
 const Hero = () => {
 	return (
-    <div className="flex items-center justify-center h-auto min-h-[90vh] lg:h-[90vh] xl:h-[90vh] w-full flex-col lg:flex-row xl:flex-row overflow-hidden -mt-10  mb-4 py-4 sm:py-0 sm:mb-0">
+    <div className="flex items-center justify-center h-auto min-h-[90vh] lg:h-[90vh] xl:h-[90vh] w-full flex-col lg:flex-row xl:flex-row overflow-hidden mt-[-6rem] mb-4 py-4 sm:py-0 sm:mb-0">
       <div className="w-full lg:w-8/12 xl:w-8/12 h-auto lg:h-full xl:h-full flex items-start justify-center flex-col pl-2 lg:pl-4 xl:pl-4 relative z-10 lg:py-0 xl:py-0 overflow-hidden !text-[#ECF2F5]">
 		  <h3 className="text-sm lg:text-base xl:text-base bg-text-gradient font-bold mb-1 uppercase tracking-wider">
             200+ Cryptocurrencies. Sorting. Open Source. Categories.
