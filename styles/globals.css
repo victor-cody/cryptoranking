@@ -49,11 +49,12 @@ a {
   @apply relative px-2 after:absolute after:top-[50%] after:right-8 after:w-[50%] after:border-b-2 after:border-gray-400
 } */
 
-.bg-image {
+/* .bg-image {
   background: linear-gradient(to left, #023e8a, #0077b6, #0096c7, #00b4d8);
-}
+} */
+
 .bg-image {
-  background: url(https://coolors.co/7400b8-6930c3-5e60ce-4788d7-4ea8de-72efdd-80ffdb) center;
+  background: url('/images/gradient-background.webp') center;
   background-size: cover;
 }
 

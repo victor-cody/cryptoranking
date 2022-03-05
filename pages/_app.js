@@ -17,9 +17,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <MetaTags />
       <Provider store={store}>
-        <div className="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased w-screen dark:bg-gray-700 text-black dark:text-white overflow-x-hidden">
+        <div className="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased w-screen dark:bg-gray-700 text-black dark:text-white">
           <Navbar />
-          <div className="max-w-full h-full fixed right-0 top-0 overflow-y-auto overflow-x-hidden  left-14 md:left-16 lg:left-64 w-[calc(100vw - 3.5rem)] md:w-[calc(100vw - 4rem)] lg:w-[calc(100vw - 256px)] mt-4 mb-2 pb-4 px-4">
+          <div className="max-w-full h-full fixed right-0 top-0 overflow-y-auto left-14 md:left-16 lg:left-64 w-[calc(100vw - 3.5rem)] md:w-[calc(100vw - 4rem)] lg:w-[calc(100vw - 256px)] mt-4 mb-2 pb-4 px-4">
             <Component {...pageProps} />
           </div>
         </div>

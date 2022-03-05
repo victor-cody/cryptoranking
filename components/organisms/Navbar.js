@@ -49,14 +49,14 @@ const NavBar = () => {
           <NavbarItem
             icon={
               <Badge dot>
-                <BulbOutlined color="#fff" />
+                <BulbOutlined style={{color:"#fff"}} />
               </Badge>
             }
           >
             <Link href="/news">news</Link>
           </NavbarItem>
         </ul>
-        <p className="mb-0 px-5 pt-6 pb-4 bg-[#1f2937] hidden lg:block text-center text-sm tracking-wide">
+        {/* <p className="mb-0 px-5 pt-6 pb-4 bg-[#1f2937] hidden lg:block text-center text-sm tracking-wide">
           <span className="text-base pb-2">
             Made with 💖 by{" "}
             <a
@@ -70,7 +70,7 @@ const NavBar = () => {
           Copyright @ {new Date().getFullYear()}
           <br />
           All Rights Reversed
-        </p>
+        </p> */}
       </div>
     </nav>
   );
