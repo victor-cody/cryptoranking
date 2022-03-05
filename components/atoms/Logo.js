@@ -29,7 +29,7 @@ const Logo = () => {
         </Badge>
       </span> */}
       <h2
-        className={`text-white text-2xl font-[Lobster] hidden md:block ${
+        className={`text-white text-2xl font-[Lobster] hidden lg:block ${
           showNavBar ? "block" : "hidden"
         } logo`}
       >
@@ -38,7 +38,7 @@ const Logo = () => {
         </Link>
       </h2>
       <Button
-        className="lg:!hidden md:!hidden absolute right-[10px] top-[10px] text-lg hover:bg-inherit !border-none bg-inherit sm:!block"
+        className="lg:!hidden lg:!hidden absolute right-[10px] top-[10px] text-lg hover:bg-inherit !border-none bg-inherit sm:!block"
         onClick={(e) => {
           e.preventDefault();
           dispatch(toggleNavBar());
