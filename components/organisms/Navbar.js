@@ -23,12 +23,12 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`fixed flex [flex: 0.2] flex-col left-0 top-0 w-14 ${
-        showNavBar ? "w-60" : ""
-      } md:w-16 lg:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-"`}
+      className={`fixed flex [flex: 0.2] flex-col left-0 top-10 w-0 ${
+        showNavBar ? "!w-60" : ""
+      } md:w-0 lg:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-"`}
     >
-      <Logo />
-      <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow px-3">
+      {/* <Logo /> */}
+      <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow px-3 pt-4">
         <ul className="flex flex-col py-4 space-y-1">
           <li className="px-5 hidden lg:block">
             <div className="flex flex-row items-center h-8">

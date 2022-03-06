@@ -1,4 +1,7 @@
 import React from 'react';
+//redux state management
+import { toggleDarkMode, getTheme, darkmode } from "../../redux/themeState";
+import { useDispatch } from "react-redux";
 
 const ThemeSwitcher = () => {
 
@@ -15,22 +18,19 @@ const ThemeSwitcher = () => {
 	// 		document.body.classList.add('dark');
 	// 	}
 
-	const isdark = localStorage.getItem("dark");
-  const dark = isdark ? isdark : false;
-
   return (
     <button
-  id="theme-toggle"
-  type="button"
-  className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 fixed top-3 right-4"
-  onChange={() => {
-	localStorage.setItem("dark", !dark);
-	document.body.classList.toggle("dark");
-	  }}
->
+      id="theme-toggle"
+      type="button"
+      className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 fixed top-3 right-4"
+      onChange={() => {
+        localStorage.setItem("dark", !dark);
+        document.body.classList.toggle("dark");
+      }}
+    >
       {
         // is dark mode
-        dark ? (
+        darkmode ? (
           <svg
             id="theme-toggle-dark-icon"
             className="w-5 h-5 hidden"
