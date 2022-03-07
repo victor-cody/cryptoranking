@@ -1,6 +1,6 @@
 import React from "react";
 import { RoughNotation } from "react-rough-notation";
-import { BmcButton, GithubStars } from "../index.js";
+import { BmcButton, GithubStars, TwitterBtn } from "../index.js";
 
 const Hero = () => {
   return (
@@ -40,6 +40,7 @@ const Hero = () => {
         </p>
         <div className="flex mt-2">
           <BmcButton /> <GithubStars />
+            <TwitterBtn />
         </div>
       </div>
     </div>

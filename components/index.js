@@ -16,6 +16,7 @@ export { default as CustomStatistic } from "./molecules/CustomStatistic.js";
 //atoms
 export { default as BmcButton } from "./atoms/BmcButton.js";
 export { default as GithubStars } from "./atoms/GithubStars.js";
+export { default as TwitterBtn } from "./atoms/TwitterBtn.js";
 export { default as ToggleNavBtn } from "./atoms/ToggleNavBtn.js";
 export { default as ThemeSwitcher } from "./atoms/ThemeSwitcher.js";
 export { default as TimeRange } from "./atoms/TimeRange.js";
