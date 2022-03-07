@@ -93,7 +93,7 @@ export default function Home() {
       <RoughNotationGroup show={annotation}>
         <h2 className="text-2xl font-semibold mb-5">
           Global{" "}
-          <RoughNotation type="highlight" animationDelay={5000} color="#fff176">
+          <RoughNotation type="highlight" animationDelay="10000" color="#fff176">
             Crypto Stats
           </RoughNotation>
         </h2>

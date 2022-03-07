@@ -32,49 +32,58 @@ const CryptoChart = ({ coinHistory, currentPrice, coinName }) => {
 	// 	coinTimeStamp.push(new Date(price?.timestamp).toLocaleDateString());
 	// });
 
-	for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-	coinPrice.push(coinHistory?.data?.history[i].price);
-  }
+    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+      coinPrice.push(coinHistory?.data?.history[i].price);
+    }
 
-  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-    coinTimeStamp.push(
-      new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString()
-    );
-  }
-
-	// console.log(coinPrice)
-	// console.log(coinTimeStamp)
-
-	const data = {
-		labels: coinTimeStamp,
-		datasets: [
-			{
-				label: "Price in USD",
-				fill: false,
-				data: coinPrice,
-				// lineTension: 0.1,
-				backgroundColor: "rgba(75,192,192,0.4)",
-				borderColor: "rgba(75,192,192,1)",
-			}
-		],
-	};
-
-	const options = {
-    scales: {
-      yAxes: [
+    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+      coinTimeStamp.push(
+        new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString()
+      );
+    }
+    const data = {
+      labels: coinTimeStamp,
+      datasets: [
         {
-          ticks: {
-            beginAtZero: true,
-          },
+          label: "Price In USD",
+          data: coinPrice,
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: "#0071bd",
+          borderColor: "#0071bd",
         },
       ],
-    },
-	responsive: true,
-    title: {
-      display: true,
-      text: coinName,
-    }
-  };
+    };
+
+    const options = {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    };
+
+
+	// const options = {
+  //   scales: {
+  //     yAxes: [
+  //       {
+  //         ticks: {
+  //           beginAtZero: true,
+  //         },
+  //       },
+  //     ],
+  //   },
+	// responsive: true,
+  //   title: {
+  //     display: true,
+  //     text: coinName,
+  //   }
+  // };
 
   return (
     <>

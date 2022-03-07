@@ -52,7 +52,6 @@ const Cryptocurrencies = (props) => {
       <>
         {
           //if the data is fetched and there is no error, show the data
-
           cryptos?.map((currency, id) => (
             <Col xs={24} sm={12} lg={6} key={String(currency.uuid)}>
               <Link
@@ -110,7 +109,7 @@ const Cryptocurrencies = (props) => {
   return (
     <div>
       {!simplified && (
-        <h2 className="text-2xl font-semibold mb-2">
+        <h2 className="text-2xl font-semibold mb-4">
           <RoughNotation
             type="highlight"
             color="#bf6583"
@@ -125,13 +124,13 @@ const Cryptocurrencies = (props) => {
 
       {/* Search bar */}
       {!simplified && (
-        <div className="pt-0 pb-5 md:pt-10 md:pb-5 mx-4 mb-4 w-[50%]">
+        <div className="pt-0 pb-5 md:pt-10 md:pb-5 mb-4 sm:w-[80%] md:w-[80%] lg:w-[50%]">
           <div className="bg-white dark:bg-gray-700 text-black dark:text-white flex items-center rounded-lg shadow-md md:shadow-xl">
             <Input
-              placeholder="Filter Cryptocurrency"
+              placeholder="Search Cryptocurrencies"
               type="search"
               name="search"
-              className="w-[90%] rounded-l-full py-4 px-6 leading-tight focus:outline-none"
+              className="w-[95%] py-4 px-6 leading-tight outline-none focus:!outline-none"
               id="search"
               onChange={(e) => {
                 setSearchTerm(e.target.value);

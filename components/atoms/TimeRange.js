@@ -2,7 +2,9 @@ import { Select } from "antd";
 
  const { Option } = Select;
 
-const TimeRange = ({ setTime, time}) => {
+const TimeRange = ({ setTime, time, timeperiod}) => {
+  console.log(timeperiod)
+
   return (
     <div className="flex justify-between items-center w-56 mt-2">
       <label htmlFor="timeperiod" className="text-lg font-semibold">
@@ -14,7 +16,10 @@ const TimeRange = ({ setTime, time}) => {
         defaultValue="7d"
         className="select-timeperiod"
         placeholder="Select Timeperiod"
-        onChange={(value) => setTime(value)}
+        onChange={(value) => 
+          {setTime(value)
+            console.log(timeperiod)
+          }}
       >
         {time.map((date) => (
           <Option key={date}>{date}</Option>

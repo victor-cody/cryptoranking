@@ -35,9 +35,6 @@ import {
   TimeRange, Loader,
 } from "../../components/index.js";
 
-//
-const { Option, OptGroup } = Select;
-
 const CryptoDetails = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -45,11 +42,11 @@ const CryptoDetails = () => {
   const [timeperiod, setTimeperiod] = useState("7d");
 
   // time
-  const timeRange = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
+  const timeRange = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
 
   const { data, isFetching } =
     useGetCryptoDetailsQuery(id);
-  const { data: coinHistory, isFetching: gettingHistory } = useGetCryptoHistoryQuery({coinId: id, timeperiod});
+  const { data: coinHistory} = useGetCryptoHistoryQuery({coinId: id, timeperiod});
   // console.log(coinHistory);
 
 	//
@@ -191,23 +188,15 @@ const CryptoDetails = () => {
             }
 
             <h2 className="font-semibold text-3xl">{cryptoDetails?.name}</h2>
-            <span className="text-gray-600 text-base ml-2">
+            <span className="text-gray-600 text-base ml-2 mt-1">
               ({cryptoDetails?.symbol} / USD)
             </span>
-            {/* </Col>
-          <Col
-            span={24}
-            className="relative pt-5 pb-8 ml-3 dark:border-white-secondary after:absolute after:bottom-1 after:left-[10%] after:w-[70%] after:border-b-2 after:border-gray-400"
-          > */}
-            {/* <p className="ml-2 text-base text-gray-600">
-              View {cryptoDetails?.name + "'s"} live price in US Dollar (USD),
-              value statistics, market cap, supply and more.
-            </p> */}
+            
           </Col>
         </Row>
       </section>
 
-      <TimeRange setTime={setTimeperiod} time={timeRange} />
+      <TimeRange setTime={setTimeperiod} time={timeRange} timeperiod/>
 
       <CryptoChart
         coinHistory={coinHistory}
@@ -250,7 +239,7 @@ const CryptoDetails = () => {
           >
             {cryptoDetails?.links?.map((link) => (
               <Row className="coin-link" key={link?.name}>
-                <span className="capitalize text-base">{link?.type}</span>
+                <span className="flex items-center capitalize text-base"><ExclamationCircleOutlined className="text-blue-500 mr-1"/> {link?.type}</span>
                 <a
                   className="text-blue-500"
                   href={link?.url}

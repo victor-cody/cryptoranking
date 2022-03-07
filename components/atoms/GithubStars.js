@@ -25,12 +25,12 @@ const GithubStars = () => {
    }, []);
   return (
       <a
-        className="!p-0 !w-auto !h-auto !m-auto shine !ml-1 bg-black text-white hover:!text-white"
+        className="!p-0 !w-auto !h-auto !m-auto shine !ml-1 bg-transperant text-black hover:!text-black"
         href="https://github.com/victor-cody/cryptoranking"
         target="_blank"
         rel="noreferrer"
       >
-        <div className="border-2 border-transperent !text-white hover:!text-white px-4 py-[8px] lg:text-base xl:text-base capitalize rounded-md font-semibold flex items-center justify-center">
+        <div className="border-2 border-black !text-black hover:!text-black px-4 py-[8px] lg:text-base xl:text-base capitalize rounded-md font-semibold flex items-center justify-center">
           Stars <span className="poppins mx-1">{starCount}</span>
           <GithubOutlined className="text-lg" />
         </div>
