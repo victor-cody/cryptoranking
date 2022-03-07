@@ -52,7 +52,6 @@ const Cryptocurrencies = (props) => {
       <>
         {
           //if the data is fetched and there is no error, show the data
-
           cryptos?.map((currency, id) => (
             <Col xs={24} sm={12} lg={6} key={String(currency.uuid)}>
               <Link

@@ -24,7 +24,7 @@ const NavBar = () => {
   return (
     <nav
       className={`fixed flex [flex: 0.2] flex-col left-0 top-10 w-0 ${
-        showNavBar ? "!w-60" : ""
+        showNavBar ? "!w-64" : ""
       } md:w-0 lg:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-"`}
     >
       {/* <Logo /> */}
@@ -43,9 +43,9 @@ const NavBar = () => {
           <NavbarItem icon={<MoneyCollectFilled />}>
             <Link href="/cryptocurrencies">cryptocurrencies</Link>
           </NavbarItem>
-          <NavbarItem icon={<FundOutlined />}>
+          {/* <NavbarItem icon={<FundOutlined />}>
             <Link href="/exchanges">exchanges</Link>
-          </NavbarItem>
+          </NavbarItem> */}
           <NavbarItem
             icon={
               <Badge dot>
@@ -56,21 +56,6 @@ const NavBar = () => {
             <Link href="/news">news</Link>
           </NavbarItem>
         </ul>
-        {/* <p className="mb-0 px-5 pt-6 pb-4 bg-[#1f2937] hidden lg:block text-center text-sm tracking-wide">
-          <span className="text-base pb-2">
-            Made with 💖 by{" "}
-            <a
-              href="https://twitter.com/Victor_codejs"
-              className="text-blue-600"
-            >
-              Victor
-            </a>
-          </span>
-          <br className="pb-1" />
-          Copyright @ {new Date().getFullYear()}
-          <br />
-          All Rights Reversed
-        </p> */}
       </div>
     </nav>
   );

@@ -53,7 +53,7 @@ const CryptoNews = (props) => {
     content = (
       <>
         {cryptoNews?.value?.map((article, id) => (
-          <Col xs={24} sm={12} lg={8} key={id} className="min-h-[300px]">
+          <Col xs={24} sm={12} lg={8} key={id} className="min-h-[300px]" >
             <a href={`${article.url}`} target="_blank" rel="noreferrer">
               <Card
                 bordered={false}
@@ -63,7 +63,9 @@ const CryptoNews = (props) => {
                 <div className="text-[12px] font-bold">
                   {/*  */}
                   <div className="flex justify-between items-center my-2">
-                    <h3 className="text-[15px]">{article?.name}</h3>
+                    <h3 className="text-[15px]">{article.name.length > 70
+                      ? `${article.name.substring(0, 70)}...`
+                      : article.name}</h3>
                     {
                       // eslint-disable-next-line
                       <img
@@ -134,7 +136,7 @@ const CryptoNews = (props) => {
             </label>
             <Select
               showSearch
-              className="lg:w-[50%] sm:w-[80%] rounded-l-full py-4 px-6 leading-tight focus:outline-none"
+              className="w-[300px] rounded-l-full py-4 px-6 leading-tight focus:outline-none"
               id="newsCategory"
               placeholder="Select a Crypto"
               defaultValue=""
