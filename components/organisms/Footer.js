@@ -12,7 +12,7 @@ const Footer = () => {
         <li className="">
           <a
             href="https://twitter.com/Victor_codejs"
-            className="text-lg flex items-center justify-between text-blue-600"
+            className="text-lg sm:text-[14px] flex items-center justify-between text-blue-600"
           >
             <TwitterOutlined className="mr-2"/>
             Twitter
@@ -21,7 +21,7 @@ const Footer = () => {
         <li className="">
           <a
             href="https://www.linkedin.com/in/victor-ikechukwu-6248941b5/"
-            className="text-lg flex items-center justify-between text-blue-600"
+            className="text-lg sm:text-[14px] flex items-center justify-between text-blue-600"
           >
             <LinkedinOutlined className="mr-2"/>
             Linkedin
@@ -30,14 +30,14 @@ const Footer = () => {
         <li className="">
           <a
             href="https://github.com/victor-cody"
-            className="text-lg flex items-center justify-between text-blue-600"
+            className="text-lg sm:text-[14px] flex items-center justify-between text-blue-600"
           >
             <GithubOutlined className="mr-2"/>
             Github
           </a>
         </li>
       </ul>
-      <p className="text-base tracking-wide mt-1 pt-3 pb-4 border-t-2 border-gray-300">
+      <p className="text-base text-center tracking-wide mt-1 pt-3 pb-4 border-t-2 border-gray-300">
         <span className="text-base pb-2">
           Made with Next.js, redux-toolkit, TailwindCSS and 💖 by{" "}
           <a href="https://twitter.com/Victor_codejs" className="text-blue-600">
