@@ -1,5 +1,5 @@
 {
-  "name": "cryto-news-app",
+  "name": "cryto-ranking",
   "private": true,
   "scripts": {
     "dev": "next dev",

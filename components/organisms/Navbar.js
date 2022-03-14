@@ -9,14 +9,10 @@ import {
   MoneyCollectFilled,
   BulbOutlined,
   FundOutlined,
-  BellFilled,
 } from "@ant-design/icons"; //antdesign icons
 
 //navbar items
 import NavbarItem from "../atoms/NavbarItem";
-
-//logo
-import Logo from "../atoms/Logo";
 
 const NavBar = () => {
   const showNavBar = useSelector((state) => state.navBarState.showNavBar);
@@ -27,7 +23,6 @@ const NavBar = () => {
         showNavBar ? "!w-64" : ""
       } md:w-0 lg:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-"`}
     >
-      {/* <Logo /> */}
       <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow px-3 pt-4">
         <ul className="flex flex-col py-4 space-y-1">
           <li className="px-5 hidden lg:block">

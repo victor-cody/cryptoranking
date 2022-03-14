@@ -12,7 +12,7 @@ const MetaTags = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {/* <meta name="theme-color" content="#d73e87" /> */}
 
-      <title>Crypro Ranking </title>
+      <title>Crypto Ranking </title>
       <meta name="description" content="" />
       <meta
         name="keywords"
@@ -31,8 +31,9 @@ const MetaTags = () => {
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="codewithvictor.netlify.app/" />
-      <meta property="og:title" content="cryptobase" />
+      <meta property="og:url" content="https://cryptoranking-1.netlify.app/" />
+      <meta property="og:title" content="cryptoranking" />
+
       <meta
         property="og:description"
         content="cryptranking is the online hub for all things crypto, with in-depth data about all cryptocurrencies, crypto markets, exchanges, popular cryptocurrency news and much more all ina single web application"
@@ -44,16 +45,17 @@ const MetaTags = () => {
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="codewithvictor.netlify.app/" />
-      <meta property="twitter:title" content="Victor Ikechukwu" />
+      <meta property="twitter:url" content="cryptoranking-1.netlify.app/" />
+      <meta property="twitter:title" content="cryptoranking" />
+      <meta property="twitter:creator" content="Victor_codejs" />
       <meta
         property="twitter:description"
-        content="cryptobase is the online hub for all things crypto, with in-depth data about all cryptocurrencies, crypto markets, exchanges, popular cryptocurrency news and much more all ina single web application"
+        content="cryptranking is the online hub for all things crypto, with in-depth data about all cryptocurrencies, crypto markets, exchanges, popular cryptocurrency news and much more all ina single web application"
       />
-      <meta
+      {/* <meta
         property="twitter:image"
         content="https://cryptoranking-1.netlify.app/images/site-banner.png"
-      />
+      /> */}
       {/* Buy Me A Coffee */}
       {/* <script
         data-name="BMC-Widget"

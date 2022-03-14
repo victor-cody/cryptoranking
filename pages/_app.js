@@ -10,14 +10,23 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import store from "../redux/store.js"; //redux store
-import { Provider } from "react-redux"; //redux
+//redux state management
+import { Provider, useSelector, useDispatch } from "react-redux";
 
-import { Header, Navbar, Footer, MetaTags } from "../components"; //Navbar
+//components
+import { Header, Navbar, Footer, MetaTags } from "../components";
+
+//
+import { toggleDarkMode, getTheme } from "../redux/navBarState";
 
 function MyApp({ Component, pageProps }) {
+  // const dispatch = useDispatch();
   useEffect(() => {
     // initialize AOS
     AOS.init();
+
+    // //getting device theme on page load
+    // dispatch(getTheme)
   });
 
   return (
