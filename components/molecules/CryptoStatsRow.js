@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import { Col, Card, Row } from "antd";
 
 const CryptoStatsRow = (props) => {
-	//
-	const {title, stats, description} = props;
+  //
+  const { title, stats, description } = props;
 
-	return (
+  return (
     <Col xs={24} sm={24} lg={12} className="my-3">
-      <h2 className="heading-2 side-border pb-1">
+      <h2 className="heading-2 side-border pb-1 text-[rgb(0,35,88)]">
         {title}
       </h2>
       <p className="text-base text-gray-600">{description}</p>

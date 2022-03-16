@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  TwitterOutlined
-} from "@ant-design/icons";
+import { TwitterOutlined } from "@ant-design/icons";
 
 const TwitterBtn = () => {
   const twitterLink =
-    "https://twitter.com/intent/tweet?text=Checkout%20cryptoranking-1.netlify.app%20by%20@Victor_codejs%0A%0A%20A%20300%20storehouse%20300%20for%20all%20things%20cryptocurrency.%20You%27ll%20love%20it!%F0%9F%94%A5%0A%0A%23DEVCommunity";
+    "https://twitter.com/intent/tweet?text=Checkout%20cryptoranking-1.netlify.app%20by%20@Victor_codejs%0A%0AA%20%20storehouse%20for%20all%20things%20cryptocurrency.%20You%27ll%20love%20it!%F0%9F%94%A5%0A%0A%23DEVCommunity%20%23Crypto";
 
   return (
     <a

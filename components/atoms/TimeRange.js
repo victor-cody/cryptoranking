@@ -7,7 +7,7 @@ const TimeRange = ({ setTime, time, timeperiod}) => {
 
   return (
     <div className="flex justify-between items-center w-56 mt-2">
-      <label htmlFor="timeperiod" className="text-lg font-semibold">
+      <label htmlFor="timeperiod" className="text-lg font-semibold text-[rgb(0,35,88)]">
         {" "}
         Set time range:
       </label>

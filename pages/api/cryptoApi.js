@@ -1,12 +1,12 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'; // Import the RTK Query methods from the React-specific entry point
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"; // Import the RTK Query methods from the React-specific entry point
 
 //Headers
-const cryptoHeaders = { 
-	'x-rapidapi-host': process.env.NEXT_PUBLIC_CRYPTOAPI_HOST_HOST,
-    'x-rapidapi-key': process.env.NEXT_PUBLIC_CRYPTOAPI_HOST_KEY
-}
+const cryptoHeaders = {
+  "x-rapidapi-host": process.env.NEXT_PUBLIC_CRYPTOAPI_HOST_HOST,
+  "x-rapidapi-key": process.env.NEXT_PUBLIC_CRYPTOAPI_HOST_KEY,
+};
 
-//base URL  
+//base URL
 const baseUrl = "https://coinranking1.p.rapidapi.com";
 
 //
@@ -32,8 +32,11 @@ export const cryptoAPI = createApi({
         createRequest(`/coin/${coinId}/history?timeperiod=${timeperiod}`),
     }),
   }),
-}); 
-
+});
 
 // Export the auto-generated hooks for the queryes's endpoint
-export const { useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } = cryptoAPI;
+export const {
+  useGetCryptosQuery,
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} = cryptoAPI;

@@ -191,12 +191,11 @@ const CryptoDetails = () => {
             <span className="text-gray-600 text-base ml-2 mt-1">
               ({cryptoDetails?.symbol} / USD)
             </span>
-            
           </Col>
         </Row>
       </section>
 
-      <TimeRange setTime={setTimeperiod} time={timeRange} timeperiod/>
+      <TimeRange setTime={setTimeperiod} time={timeRange} timeperiod />
 
       <CryptoChart
         coinHistory={coinHistory}
@@ -204,7 +203,7 @@ const CryptoDetails = () => {
         coinName={cryptoDetails?.name}
       />
 
-      <Row gutter={[32, 32]}>
+      <Row gutter={[32, 32]} className="justify-center">
         <CryptoStatsRow
           title="Market stats"
           stats={stats}
@@ -220,7 +219,9 @@ const CryptoDetails = () => {
 
       <section className="">
         <Row gutter={[4, 4]}>
-          <h2 className="heading-2">About {cryptoDetails?.name}</h2>
+          <h2 className="heading-2 text-[rgb(0,35,88)]">
+            About {cryptoDetails?.name}
+          </h2>
           <Col span={24} className="coin-description">
             <Card className="bg-white dark:bg-gray-800 shadow-md rounded">
               {HTMLReactParser(cryptoDetails?.description)}
@@ -230,7 +231,7 @@ const CryptoDetails = () => {
       </section>
 
       <section className="">
-        <h2 className="heading-2">Relevant Links</h2>
+        <h2 className="heading-2 text-[rgb(0,35,88)]">Relevant Links</h2>
 
         <Col lg={12} sm={24}>
           <Card
@@ -239,9 +240,12 @@ const CryptoDetails = () => {
           >
             {cryptoDetails?.links?.map((link) => (
               <Row className="coin-link" key={link?.name}>
-                <span className="flex items-center capitalize text-base"><ExclamationCircleOutlined className="text-blue-500 mr-1"/> {link?.type}</span>
+                <span className="flex items-center capitalize text-base">
+                  <ExclamationCircleOutlined className="text-blue-500 mr-2" />{" "}
+                  {link?.type}
+                </span>
                 <a
-                  className="text-blue-500"
+                  className="text-blue-500 ml-1"
                   href={link?.url}
                   target="_blank"
                   rel="noreferrer"
