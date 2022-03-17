@@ -10,8 +10,10 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 
+//moment
+import moment from "moment";
 
 ChartJS.register(
   CategoryScale,
@@ -24,51 +26,58 @@ ChartJS.register(
 );
 
 const CryptoChart = ({ coinHistory, currentPrice, coinName }) => {
-	const coinPrice = [];
-	const coinTimeStamp = [];
-	
-	// coinHistory?.data?.history?.map((price) => {
-	// 	coinPrice.push(price?.price);
-	// 	coinTimeStamp.push(new Date(price?.timestamp).toLocaleDateString());
-	// });
+  const coinPrice = [];
+  const coinTimeStamp = [];
 
-    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-      coinPrice.push(coinHistory?.data?.history[i].price);
-    }
+  // coinHistory?.data?.history?.map((price) => {
+  // 	coinPrice.push(price?.price);
+  // 	coinTimeStamp.push(new Date(price?.timestamp).toLocaleDateString());
+  // });
 
-    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-      coinTimeStamp.push(
-        new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString()
-      );
-    }
-    const data = {
-      labels: coinTimeStamp,
-      datasets: [
+  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+    coinPrice.push(coinHistory?.data?.history[i]?.price);
+  }
+
+  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+    // coinTimeStamp.push(
+    //   new Date(
+    //     coinHistory?.data?.history[i]?.timestamp * 1000
+    //   ).toLocaleDateString()
+    // );
+    coinTimeStamp.push(
+      moment
+        .unix(coinHistory?.data?.history[i]?.timestamp)
+        ?.format("DD|MM|YYYY")
+    );
+  }
+
+  const data = {
+    labels: coinTimeStamp,
+    datasets: [
+      {
+        label: "Price In USD",
+        data: coinPrice,
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "#0071bd",
+        borderColor: "#0071bd",
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      yAxes: [
         {
-          label: "Price In USD",
-          data: coinPrice,
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: "#0071bd",
-          borderColor: "#0071bd",
+          ticks: {
+            beginAtZero: true,
+          },
         },
       ],
-    };
+    },
+  };
 
-    const options = {
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true,
-            },
-          },
-        ],
-      },
-    };
-
-
-	// const options = {
+  // const options = {
   //   scales: {
   //     yAxes: [
   //       {
@@ -78,7 +87,7 @@ const CryptoChart = ({ coinHistory, currentPrice, coinName }) => {
   //       },
   //     ],
   //   },
-	// responsive: true,
+  // responsive: true,
   //   title: {
   //     display: true,
   //     text: coinName,
@@ -91,11 +100,11 @@ const CryptoChart = ({ coinHistory, currentPrice, coinName }) => {
         <Card className="break-words bg-white dark:bg-gray-800 shadow-md rounded my-4">
           <Row gutter={[32, 32]} className="pb-2 border-b-2">
             <div className="w-full flex justify-between items-center px-2 py-3">
-              <h3 className="lg:text-xl sm:text-lg sm:font-semibold">
+              <h3 className="lg:text-xl sm:text-lg sm:font-semibold text-[rgb(0,35,88)]">
                 Change:{" "}
                 <span
                   className={`${
-                    coinHistory?.data?.change.includes("-")
+                    coinHistory?.data?.change?.includes("-")
                       ? "text-red-500"
                       : "text-green-600"
                   }`}
@@ -103,7 +112,7 @@ const CryptoChart = ({ coinHistory, currentPrice, coinName }) => {
                   {coinHistory?.data?.change}%
                 </span>{" "}
               </h3>
-              <h3 className="lg:text-xl sm:text-lg sm:font-semibold">
+              <h3 className="lg:text-xl sm:text-lg sm:font-semibold text-[rgb(0,35,88)]">
                 Current {coinName} Price: $ {currentPrice}
               </h3>
             </div>

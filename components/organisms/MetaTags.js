@@ -23,7 +23,7 @@ const MetaTags = () => {
       <link rel="icon" href="/images/logo.jpg" />
 
       {/* Primary Meta Tags */}
-      <meta name="title" content="cryptobase" />
+      <meta name="title" content="cryptoranking" />
       <meta
         name="description"
         content="cryptranking is the online hub for all things crypto, with in-depth data about all cryptocurrencies, crypto markets, exchanges, popular cryptocurrency news and much more all ina single web application"
@@ -64,7 +64,7 @@ const MetaTags = () => {
         data-id="molipa"
         data-description="Support me on Buy me a coffee!"
         data-message="
-         If you're enjoying cryptobase - the online hub for all things crypto, consider supporting me with a coffee ☕️"
+         If you're enjoying cryptoranking - the online hub for all things crypto, consider supporting me with a coffee ☕️"
         data-color="#FFDD00"
         data-position="Right"
         data-x_margin="18"
