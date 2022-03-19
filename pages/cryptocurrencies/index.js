@@ -10,7 +10,6 @@ import { GridLoadingSkeleton } from "../../components";
 import { useGetCryptosQuery } from "../api/cryptoApi.js";
 
 const Cryptocurrencies = (props) => {
-  
   let content; // content to be displayed
 
   const { simplified } = props; // prop to determine the UI layout to show
@@ -54,9 +53,7 @@ const Cryptocurrencies = (props) => {
           //if the data is fetched and there is no error, show the data
           cryptos?.map((currency, id) => (
             <Col xs={24} sm={12} lg={6} key={String(currency.uuid)}>
-              <Link
-                href={`cryptocurrencies/${currency.uuid}`}
-              >
+              <Link href={`cryptocurrencies/${currency.uuid}`}>
                 <a>
                   <Card
                     bordered={false}
@@ -110,6 +107,7 @@ const Cryptocurrencies = (props) => {
     <div>
       {!simplified && (
         <h2 className="text-2xl font-semibold mb-4">
+          All{" "}
           <RoughNotation
             type="highlight"
             color="#bf6583"
@@ -118,7 +116,7 @@ const Cryptocurrencies = (props) => {
           >
             Crypto
           </RoughNotation>
-          currencies
+          currency
         </h2>
       )}
 
