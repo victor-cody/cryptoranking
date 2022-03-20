@@ -38,19 +38,24 @@ import {
 const CryptoDetails = () => {
   const router = useRouter();
   const { id } = router.query;
-  
+
   const [timeperiod, setTimeperiod] = useState("7d");
 
   // time
   const timeRange = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
 
-  const { data, isFetching } =
-    useGetCryptoDetailsQuery(id);
-  const { data: coinHistory} = useGetCryptoHistoryQuery({coinId: id, timeperiod});
-  // console.log(coinHistory);
+  const { data, isFetching } = useGetCryptoDetailsQuery(id);
+  const { data: coinHistory } = useGetCryptoHistoryQuery({
+    coinId: id,
+    timeperiod,
+  });
 
-	//
-	const cryptoDetails = data?.data?.coin;
+  const cryptoDetails = data?.data?.coin;
+
+  //scroll to top on page load
+  useEffect(() => {
+    typeof window !== "undefined" && window.scrollTo(0, 0);
+  }, []);
 
   //
   const stats = [
@@ -140,7 +145,7 @@ const CryptoDetails = () => {
     },
   ];
 
-    //if the data is not yet fetched, show a loading indicator
+  //if the data is not yet fetched, show a loading indicator
   if (isFetching) {
     return <Loader />;
   }

@@ -9,27 +9,25 @@ const Hero = () => {
         <h3
           className="text-sm lg:text-base xl:text-base bg-text-gradient font-bold mb-1 uppercase tracking-wider"
           data-aos="fade-left"
-          data-aos-delay="1000"
-          data-aos-easing="ease-in"
+          data-aos-delay="800"
         >
           100+ Cryptocurrencies. Categories. Open Source. Sorting.
         </h3>
         <h1
           className="!text-[#03045e] font-semibold text-3xl lg:text-[3rem] xl:text-[3rem] lg:leading-[3rem] my-2"
           data-aos="fade-left"
-          data-aos-delay="1350"
-          data-aos-easing="ease-in"
+          data-aos-delay="1150"
         >
           The storehouse for info on all things{" "}
           <RoughNotation
             type="underline"
-            animationDelay={3000}
+            animationDelay={2500}
             className="inline-bloack -pb-2"
             color="#03045e"
             show={true}
           >
             {" "}
-            cryptocurrencies
+            cryptocurrency
           </RoughNotation>
         </h1>
         <p className="!text-gray-800 my-2 mt-3 text-xs lg:text-sm xl:text-sm">
@@ -40,7 +38,7 @@ const Hero = () => {
         </p>
         <div className="flex mt-2">
           <BmcButton /> <GithubStars />
-            <TwitterBtn />
+          <TwitterBtn />
         </div>
       </div>
     </div>
