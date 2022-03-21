@@ -31,6 +31,9 @@ export const cryptoAPI = createApi({
       query: ({ coinId, timeperiod }) =>
         createRequest(`/coin/${coinId}/history?timeperiod=${timeperiod}`),
     }),
+    getReferenceCurrencies: builder.query({
+      query: () => createRequest(`/reference-currencies?limit=100&type=fiat`),
+    }),
   }),
 });
 
@@ -39,4 +42,5 @@ export const {
   useGetCryptosQuery,
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
+  useGetReferenceCurrenciesQuery,
 } = cryptoAPI;
