@@ -5,7 +5,7 @@ import { cryptoNewsAPI } from "../pages/api/cryptoNewsApi";
 // import cryptoReducer from './cryptoSlice';
 import themeReducer from "./themeState";
 import navBarStateReducer from "./navBarState";
-import referenceCurrencyReducer from "referenceCurrencyState";
+import referenceCurrencyReducer from "./referenceCurrencyState";
 
 export default configureStore({
   reducer: {

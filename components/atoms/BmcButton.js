@@ -3,7 +3,7 @@ import React from "react";
 const BmcButton = () => {
   return (
       <a
-	  className="!p-1 !w-auto !h-auto !m-auto shine !mx-1"
+	  className="!p-1 !w-auto !h-auto !m-auto shine !mx-1 cursor-pointer"
         href="https://www.buymeacoffee.com/molipa"
         target="_blank"
         rel="noreferrer"

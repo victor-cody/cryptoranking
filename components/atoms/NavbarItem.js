@@ -9,12 +9,12 @@ const NavbarItem = ({ children, icon }) => {
 
   return (
     <li>
-      <span className="relative my-1 flex flex-row items-center h-11 focus:outline-none hover:bg-[#111827] rounded-md text-white-600 hover:!text-white-800 border-l-4 border-transparent cursor-pointer pr-6 pl-1">
+      <span className="relative my-1 flex flex-row items-center h-11 focus:outline-none sm:hover:bg-none md:hover:bg-[#111827] rounded-md text-white-600 hover:!text-white-800 border-l-4 border-transparent cursor-pointer pr-6 pl-1">
         <span className="inline-flex justify-center items-center ml-1">
           {icon}
         </span>
         <span
-          className="ml-2 text-sm font-semibold capitalize tracking-wide truncate"
+          className="ml-2 text-sm font-semibold capitalize tracking-wide truncate cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
             dispatch(toggleNavBar());

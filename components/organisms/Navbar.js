@@ -8,11 +8,11 @@ import {
   HomeFilled,
   MoneyCollectFilled,
   BulbOutlined,
-  FundOutlined,
+  // FundOutlined,
 } from "@ant-design/icons"; //antdesign icons
 
 //navbar items
-import NavbarItem from "../atoms/NavbarItem";
+import { NavbarItem, CurrencyRange } from "../index";
 
 const NavBar = () => {
   const showNavBar = useSelector((state) => state.navBarState.showNavBar);
@@ -20,8 +20,8 @@ const NavBar = () => {
   return (
     <nav
       className={`fixed flex [flex: 0.2] flex-col left-0 top-10 w-0 ${
-        showNavBar ? "!w-64" : ""
-      } md:w-0 lg:w-64 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-"`}
+        showNavBar ? "!w-60" : ""
+      } md:w-0 lg:w-60 bg-[#1f2937] h-full text-white transition-all duration-300 border-none z-10 m-"`}
     >
       <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow px-3 pt-4">
         <ul className="flex flex-col py-4 space-y-1">
@@ -44,7 +44,7 @@ const NavBar = () => {
           <NavbarItem
             icon={
               <Badge dot>
-                <BulbOutlined style={{color:"#fff"}} />
+                <BulbOutlined style={{ color: "#fff" }} />
               </Badge>
             }
           >
@@ -52,6 +52,7 @@ const NavBar = () => {
           </NavbarItem>
         </ul>
       </div>
+        <CurrencyRange />
     </nav>
   );
 };

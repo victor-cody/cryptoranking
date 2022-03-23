@@ -14,10 +14,9 @@ import store from "../redux/store.js"; //redux store
 import { Provider, useSelector, useDispatch } from "react-redux";
 
 //components
-import { Header, Navbar, Footer, MetaTags } from "../components";
+import { Cursor, Header, Navbar, Footer, MetaTags } from "../components";
 
-//
-import { toggleDarkMode, getTheme } from "../redux/navBarState";
+// import { toggleDarkMode, getTheme } from "../redux/navBarState";
 
 function MyApp({ Component, pageProps }) {
   // const dispatch = useDispatch();
@@ -33,10 +32,11 @@ function MyApp({ Component, pageProps }) {
     <>
       <MetaTags />
       <Provider store={store}>
+        <Cursor />
         <div className="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased w-screen dark:bg-gray-700 text-black dark:text-white">
           <Header />
           <Navbar />
-          <div className="max-w-full h-full fixed right-0 top-14 overflow-y-auto sm:left-0 md:left-0 lg:!left-64 mt-4 mb-8 pb-8 px-4">
+          <div className="max-w-full h-full fixed right-0 top-14 overflow-y-auto sm:left-0 md:left-0 lg:!left-60 mt-4 mb-8 pb-8 px-4">
             <Component {...pageProps} />
             <Footer />
           </div>

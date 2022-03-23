@@ -6,23 +6,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&family=Poppins:wght@200;300;400;500;600&display=swap");
 
 @font-face {
-    font-family: 'Avenir';
-    src: local('Avenir Roman'), local('Avenir-Roman'),
-        url('/fonts/Avenir-Roman.woff2') format('woff2'),
-        url('/fonts/Avenir-Roman.woff') format('woff'),
-        url('/fonts/Avenir-Roman.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-  }
+  font-family: "Avenir";
+  src: local("Avenir Roman"), local("Avenir-Roman"),
+    url("/fonts/Avenir-Roman.woff2") format("woff2"),
+    url("/fonts/Avenir-Roman.woff") format("woff"),
+    url("/fonts/Avenir-Roman.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* Importing CSS from other files */
-@import url('./animations.css');
+@import url("./animations.css");
+@import url("./cursor.css");
 
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Avenir', sans-serif;
-  @apply min-h-screen overflow-x-hidden flex items-center justify-center !bg-[hsl(0,0%,98%)]
+  font-family: "Avenir", sans-serif;
+  @apply min-h-screen overflow-x-hidden flex items-center justify-center !bg-[hsl(0,0%,98%)];
 }
 
 a {
@@ -36,13 +37,13 @@ a {
 }
 
 .logo {
-  font-family: 'Lobster', sans-serif;
+  font-family: "Lobster", sans-serif;
 }
 
 /* heading-2 */
 
 .heading-2 {
-  @apply text-xl font-semibold my-4
+  @apply text-xl font-semibold my-4;
 }
 
 /* .side-border {
@@ -54,7 +55,7 @@ a {
 } */
 
 .bg-image {
-  background: url('/images/gradient-background.webp') center;
+  background: url("/images/gradient-background.webp") center;
   background-size: cover;
 }
 
@@ -72,25 +73,25 @@ a {
 }
 
 .pages-container > * {
-  @apply mt-8
+  @apply mt-8;
 }
 
 .coin-description {
-  @apply mb-6
+  @apply mb-6;
 }
 
-.coin-description h3{
-  @apply font-semibold text-xl my-2
+.coin-description h3 {
+  @apply font-semibold text-xl my-2;
 }
 
 .coin-description p {
-  @apply my-3 text-base opacity-90 text-gray-600 dark:text-white
+  @apply my-3 text-base opacity-90 text-gray-600 dark:text-white;
 }
 
 .coin-description a {
-  @apply !text-[#0052ff]
+  @apply !text-[#0052ff];
 }
 
 .coin-link {
-  @apply flex justify-between items-center py-3 px-8 border-b-2 last:border-b-0 last:pb-1 hover:bg-gray-100
+  @apply flex justify-between items-center py-3 px-8 border-b-2 last:border-b-0 last:pb-1 hover:bg-gray-100;
 }

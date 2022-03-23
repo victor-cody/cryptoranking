@@ -25,7 +25,7 @@ const GithubStars = () => {
    }, []);
   return (
       <a
-        className="!p-0 !w-auto !h-auto !m-auto shine !ml-1 bg-transperant text-black hover:!text-black"
+        className="!p-0 !w-auto !h-auto !m-auto shine !ml-1 bg-transperant text-black hover:!text-black cursor-pointer"
         href="https://github.com/victor-cody/cryptoranking"
         target="_blank"
         rel="noreferrer"
