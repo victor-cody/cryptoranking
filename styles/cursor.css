@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: none;
+}
+
+body {
+  cursor: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+nav svg {
+  cursor: pointer;
+}
+
+.cursor-ball {
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+}
+.cursor-outline {
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 1px solid #000;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.5s ease;
+  -webkit-transform-origin: 130% 100%;
+  transform-origin: 130% 100%;
+}
+.cursor-ball,
+.cursor-outline {
+  border-radius: 50%;
+  position: absolute;
+  z-index: 100000;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: none;
+}
+@media (any-pointer: fine) {
+  .cursor-ball,
+  .cursor-outline {
+    display: block;
+    pointer-events: none;
+  }
+}
+.cursor-mousedown {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  @apply bg-blue-400;
+}

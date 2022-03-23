@@ -31,7 +31,7 @@ export default function Home() {
 
   // fetching data
   const { data, isFetching, isSuccess, isError, error } =
-    useGetCryptosQuery(10);
+    useGetCryptosQuery(10,);
 
   const annotation = useRef(false);
 

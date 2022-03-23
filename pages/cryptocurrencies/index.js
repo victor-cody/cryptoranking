@@ -36,6 +36,11 @@ const Cryptocurrencies = (props) => {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
+   //scroll to top on page load
+  useEffect(() => {
+    typeof window !== "undefined" && window.scrollTo(0, 0);
+  }, []);
+
   //if the data is not yet fetched, show a loading indicator
   if (isFetching) {
     content = (
