@@ -10,8 +10,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import store from "../redux/store.js"; //redux store
+
 //redux state management
-import { Provider, useSelector, useDispatch } from "react-redux";
+import { Provider /*useSelector, useDispatch*/ } from "react-redux";
 
 //components
 import { Cursor, Header, Navbar, Footer, MetaTags } from "../components";

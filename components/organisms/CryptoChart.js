@@ -29,21 +29,11 @@ const CryptoChart = ({ coinHistory, currentPrice, coinName }) => {
   const coinPrice = [];
   const coinTimeStamp = [];
 
-  // coinHistory?.data?.history?.map((price) => {
-  // 	coinPrice.push(price?.price);
-  // 	coinTimeStamp.push(new Date(price?.timestamp).toLocaleDateString());
-  // });
-
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinPrice.push(coinHistory?.data?.history[i]?.price);
   }
 
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-    // coinTimeStamp.push(
-    //   new Date(
-    //     coinHistory?.data?.history[i]?.timestamp * 1000
-    //   ).toLocaleDateString()
-    // );
     coinTimeStamp.push(
       moment
         .unix(coinHistory?.data?.history[i]?.timestamp)
@@ -76,23 +66,6 @@ const CryptoChart = ({ coinHistory, currentPrice, coinName }) => {
       ],
     },
   };
-
-  // const options = {
-  //   scales: {
-  //     yAxes: [
-  //       {
-  //         ticks: {
-  //           beginAtZero: true,
-  //         },
-  //       },
-  //     ],
-  //   },
-  // responsive: true,
-  //   title: {
-  //     display: true,
-  //     text: coinName,
-  //   }
-  // };
 
   return (
     <>

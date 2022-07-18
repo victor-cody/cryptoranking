@@ -27,12 +27,17 @@ import {
   ThunderboltOutlined,
 } from "@ant-design/icons";
 
-import {useGetCryptoDetailsQuery, useGetCryptoHistoryQuery, useGetCryptosQuery} from "../api/cryptoApi.js";
+import {
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+  useGetCryptosQuery,
+} from "../api/cryptoApi.js";
 
 import {
   CryptoStatsRow,
   CryptoChart,
-  TimeRange, Loader,
+  TimeRange,
+  Loader,
 } from "../../components/index.js";
 
 const CryptoDetails = () => {
@@ -245,7 +250,7 @@ const CryptoDetails = () => {
           >
             {cryptoDetails?.links?.map((link) => (
               <Row className="coin-link" key={link?.name}>
-                <span className="flex items-center capitalize text-base">
+                <span className="flex items-center lowercase text-[0.9rem]">
                   <ExclamationCircleOutlined className="text-blue-500 mr-2" />{" "}
                   {link?.type}
                 </span>

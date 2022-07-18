@@ -15,7 +15,8 @@ import CryptoNews from "./news";
 import { useGetCryptosQuery } from "./api/cryptoApi";
 
 export default function Home() {
-  //function to give the CryptoStats component headers diffrent colors
+
+  /*function to give the CryptoStats component headers diffrent colors*/
   function applyColors() {
     const CryptoStatsHeaders = document.querySelectorAll(
       ".ant-statistic-title"

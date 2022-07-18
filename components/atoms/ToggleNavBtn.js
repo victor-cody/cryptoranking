@@ -19,12 +19,12 @@ const ToggleNavBtn = () => {
     >
       {showNavBar ? (
         <CloseOutlined
-          className="focus:bg-transparent bg-transparent"
+          className="focus:bg-transparent bg-transparent hover:bg-transparent"
           style={{ color: "#fff" }}
         />
       ) : (
         <AlignRightOutlined
-          className="focus:bg-transparent bg-transparent"
+          className="focus:bg-transparent bg-transparent hover:bg-transparent"
           style={{ color: "#fff" }}
         />
       )}
